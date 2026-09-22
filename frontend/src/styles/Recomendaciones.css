@@ -1,0 +1,485 @@
+/* =========================================================
+   PÁGINA RECOMENDACIONES
+========================================================= */
+
+.pagina-recomendaciones {
+  width: 100%;
+  min-height: 100%;
+  padding: 36px 42px 45px;
+  background: transparent;
+  color: #20251f;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.encabezado-recomendaciones {
+  margin-bottom: 24px;
+}
+
+.etiqueta-seccion {
+  display: inline-block;
+  margin-bottom: 7px;
+
+  color: #d5a928;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.encabezado-recomendaciones h1 {
+  margin: 0;
+
+  color: #20251f;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.encabezado-recomendaciones p {
+  margin: 8px 0 0;
+
+  color: #73786f;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESUMEN DEL ANÁLISIS
+========================================================= */
+
+.resumen-analisis {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+  min-height: 145px;
+
+  margin-bottom: 28px;
+
+  background: #ffffff;
+  border: 1px solid #e8e9e4;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 18px rgba(39, 48, 37, 0.045);
+
+  overflow: hidden;
+}
+
+.linea-resumen {
+  width: 4px;
+  flex-shrink: 0;
+
+  background: linear-gradient(
+    180deg,
+    #5d8245 0%,
+    #d5a928 50%,
+    #c85d4b 100%
+  );
+}
+
+.contenido-resumen {
+  flex: 1;
+  padding: 20px 25px;
+}
+
+.contenido-resumen h2 {
+  margin: 0 0 18px;
+
+  color: #555a52;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.datos-resumen {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.dato-resumen {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dato-resumen span {
+  color: #858980;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.dato-resumen strong {
+  color: #292e28;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.dato-resumen.resultado strong {
+  color: #b65345;
+}
+
+.dato-resumen.resultado small {
+  color: #9a6d31;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RECOMENDACIONES
+========================================================= */
+
+.seccion-recomendaciones {
+  margin-bottom: 32px;
+}
+
+.titulo-recomendaciones {
+  margin-bottom: 15px;
+}
+
+.titulo-recomendaciones h2 {
+  margin: 0;
+
+  color: #555a52;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.lista-recomendaciones {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+
+/* =========================================================
+   TARJETAS INDIVIDUALES
+========================================================= */
+
+.tarjeta-recomendacion {
+  position: relative;
+
+  display: flex;
+  min-height: 235px;
+
+  padding: 22px 22px 20px 20px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  overflow: hidden;
+
+  box-shadow: 0 6px 18px rgba(45, 52, 42, 0.055);
+
+  box-sizing: border-box;
+}
+
+.tarjeta-recomendacion::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 4px;
+}
+
+
+/* VERDE */
+
+.tarjeta-recomendacion.verde {
+  background: linear-gradient(
+    135deg,
+    #f3f7ef 0%,
+    #e7efdf 100%
+  );
+}
+
+.tarjeta-recomendacion.verde::before {
+  background: #668c4e;
+}
+
+
+/* AMARILLO */
+
+.tarjeta-recomendacion.amarillo {
+  background: linear-gradient(
+    135deg,
+    #fffaf0 0%,
+    #f8edc8 100%
+  );
+}
+
+.tarjeta-recomendacion.amarillo::before {
+  background: #d2a72b;
+}
+
+
+/* AZUL */
+
+.tarjeta-recomendacion.azul {
+  background: linear-gradient(
+    135deg,
+    #f1f6f5 0%,
+    #dceceb 100%
+  );
+}
+
+.tarjeta-recomendacion.azul::before {
+  background: #5b8987;
+}
+
+
+/* ROJO */
+
+.tarjeta-recomendacion.rojo {
+  background: linear-gradient(
+    135deg,
+    #fff4f1 0%,
+    #f5dfda 100%
+  );
+}
+
+.tarjeta-recomendacion.rojo::before {
+  background: #c45d4c;
+}
+
+
+/* =========================================================
+   CONTENIDO RECOMENDACIÓN
+========================================================= */
+
+.numero-recomendacion {
+  flex-shrink: 0;
+
+  width: 38px;
+
+  color: #7c8178;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.contenido-recomendacion {
+  flex: 1;
+}
+
+.contenido-recomendacion h3 {
+  margin: 0 0 11px;
+
+  color: #292e28;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.contenido-recomendacion p {
+  margin: 0;
+
+  color: #646960;
+  font-size: 13px;
+  line-height: 1.58;
+}
+
+.indicador-recomendacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: 20px;
+  padding-top: 13px;
+
+  border-top: 1px solid rgba(72, 77, 67, 0.13);
+
+  color: #666b62;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.indicador-recomendacion strong {
+  color: #30352e;
+}
+
+.ubicacion {
+  white-space: nowrap;
+  color: #777c73;
+}
+
+
+/* =========================================================
+   RESULTADOS
+========================================================= */
+
+.resultados-respaldo {
+  padding: 22px 24px 24px;
+
+  background: #fffafa;
+
+  border: 1px solid #ecdcd8;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 18px rgba(80, 46, 40, 0.04);
+
+  margin-bottom: 18px;
+}
+
+.resultados-respaldo h2 {
+  margin: 0 0 17px;
+
+  color: #685953;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.tarjetas-resultados {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.resultado-card {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 105px;
+  padding: 17px;
+
+  border-radius: 12px;
+
+  box-sizing: border-box;
+}
+
+.resultado-card strong {
+  margin-bottom: 5px;
+
+  color: #8e3f35;
+  font-size: 24px;
+  font-weight: 750;
+}
+
+.resultado-card span {
+  color: #5f514d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.resultado-card small {
+  margin-top: auto;
+
+  color: #806d68;
+  font-size: 10px;
+}
+
+
+/* DIFERENTES ROJOS */
+
+.rojo-oscuro {
+  background: linear-gradient(
+    135deg,
+    #f8e3df,
+    #f1d3ce
+  );
+}
+
+.rojo {
+  background: linear-gradient(
+    135deg,
+    #fbeae6,
+    #f5dcd7
+  );
+}
+
+.rojo-claro {
+  background: linear-gradient(
+    135deg,
+    #fdf0ed,
+    #f7e4df
+  );
+}
+
+.terracota {
+  background: linear-gradient(
+    135deg,
+    #f9e8e1,
+    #f3d8cd
+  );
+}
+
+
+/* =========================================================
+   AVISO AMARILLO
+========================================================= */
+
+.aviso-recomendaciones {
+  width: 100%;
+  padding: 14px 18px;
+
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    135deg,
+    #fff9e9,
+    #f8edc9
+  );
+
+  border: 1px solid #ead8a5;
+  border-radius: 12px;
+
+  color: #76643b;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+  .datos-resumen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tarjetas-resultados {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .pagina-recomendaciones {
+    padding: 25px 20px 35px;
+  }
+
+  .lista-recomendaciones {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .datos-resumen,
+  .tarjetas-resultados {
+    grid-template-columns: 1fr;
+  }
+
+  .resumen-analisis {
+    min-height: auto;
+  }
+
+  .indicador-recomendacion {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

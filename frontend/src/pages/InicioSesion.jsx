@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logoIcono from "../assets/logo-icono.png";
-import "../styles/login.css";
+import "../styles/InicioSesion.css";
 
-export default function Login() {
+export default function InicioSesion() {
   const navigate = useNavigate();
 
   const [cargando, setCargando] = useState(false);

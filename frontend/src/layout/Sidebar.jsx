@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import "../styles/Sidebar.css";
 import logoDatavida from "../assets/logo-icono.png";
 
@@ -6,6 +8,7 @@ const elementosNavegacion = [
   {
     id: "inicio",
     etiqueta: "Inicio",
+    ruta: "/app",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -25,6 +28,7 @@ const elementosNavegacion = [
   {
     id: "indicadores",
     etiqueta: "Indicadores",
+    ruta: "/app/indicadores",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -45,6 +49,7 @@ const elementosNavegacion = [
   {
     id: "visualizacion",
     etiqueta: "Visualización",
+    ruta: "/app/mapa",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -65,6 +70,7 @@ const elementosNavegacion = [
   {
     id: "comparar",
     etiqueta: "Comparar",
+    ruta: "/app/comparar",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -85,6 +91,7 @@ const elementosNavegacion = [
   {
     id: "estadisticas",
     etiqueta: "Análisis estadístico",
+    ruta: "/app/analisis-estadistico",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -104,6 +111,7 @@ const elementosNavegacion = [
   {
     id: "predicciones",
     etiqueta: "Predicciones IA",
+    ruta: "/app/predicciones",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -129,6 +137,7 @@ const elementosNavegacion = [
   {
     id: "recomendaciones",
     etiqueta: "Recomendaciones",
+    ruta: "/app/recomendaciones",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -148,6 +157,7 @@ const elementosNavegacion = [
   {
     id: "reportes",
     etiqueta: "Reportes",
+    ruta: "/app/reportes",
     icono: (
       <svg
         viewBox="0 0 24 24"
@@ -166,49 +176,49 @@ const elementosNavegacion = [
   },
 ];
 
-function BarraLateral({ pantallaActual, navegar }) {
+function BarraLateral() {
+  const navigate = useNavigate();
+
+  const rutaActual = window.location.pathname;
+
+  const navegar = (ruta) => {
+    navigate(ruta);
+  };
+
   return (
     <aside className="barra-lateral">
 
+      {/* LOGO */}
       <div className="barra-lateral-logo">
         <button
           className="logo-datavida-interno"
-          onClick={() => navegar("inicio")}
+          onClick={() => navegar("/app")}
           type="button"
         >
-          <img
-            src={logoDatavida}
-            alt="DataVida"
-          />
-
-          <span>
-            DataVida
-          </span>
+          <img src={logoDatavida} alt="DataVida" />
+          <span>DataVida</span>
         </button>
       </div>
 
+      {/* MENÚ PRINCIPAL */}
       <nav className="navegacion-lateral">
-
         <p className="titulo-navegacion">
           MENÚ PRINCIPAL
         </p>
 
         <div className="lista-navegacion">
-
           {elementosNavegacion.map((elemento) => {
-            const activo =
-              pantallaActual === elemento.id;
+            const activo = rutaActual === elemento.ruta;
 
             return (
               <button
                 key={elemento.id}
                 type="button"
-                onClick={() => navegar(elemento.id)}
+                onClick={() => navegar(elemento.ruta)}
                 className={`elemento-navegacion ${
                   activo ? "activo" : ""
                 }`}
               >
-
                 <span className="icono-navegacion">
                   {elemento.icono}
                 </span>
@@ -216,25 +226,24 @@ function BarraLateral({ pantallaActual, navegar }) {
                 <span className="texto-navegacion">
                   {elemento.etiqueta}
                 </span>
-
               </button>
             );
           })}
-
         </div>
       </nav>
 
+      {/* PARTE INFERIOR */}
       <div className="barra-lateral-inferior">
 
+        {/* PERFIL */}
         <button
           type="button"
           className={`elemento-navegacion ${
-            pantallaActual === "perfil" ? "activo" : ""
+            rutaActual === "/app/perfil" ? "activo" : ""
           }`}
-          onClick={() => navegar("perfil")}
+          onClick={() => navegar("/app/perfil")}
         >
           <span className="icono-navegacion">
-
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -246,7 +255,6 @@ function BarraLateral({ pantallaActual, navegar }) {
               <circle cx="12" cy="8" r="4" />
               <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
             </svg>
-
           </span>
 
           <span className="texto-navegacion">
@@ -254,13 +262,41 @@ function BarraLateral({ pantallaActual, navegar }) {
           </span>
         </button>
 
+        {/* AYUDA */}
+        <button
+          type="button"
+          className={`elemento-navegacion ${
+            rutaActual === "/app/ayuda" ? "activo" : ""
+          }`}
+          onClick={() => navegar("/app/ayuda")}
+        >
+          <span className="icono-navegacion">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-.8.9-1.9 1.3-1.9 2.9" />
+              <path d="M12 17h.01" />
+            </svg>
+          </span>
+
+          <span className="texto-navegacion">
+            Ayuda
+          </span>
+        </button>
+
+        {/* CERRAR SESIÓN */}
         <button
           type="button"
           className="elemento-navegacion cerrar-sesion"
-          onClick={() => navegar("inicio-sesion")}
+          onClick={() => navegar("/login")}
         >
           <span className="icono-navegacion">
-
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -273,7 +309,6 @@ function BarraLateral({ pantallaActual, navegar }) {
               <path d="m16 17 5-5-5-5" />
               <path d="M21 12H9" />
             </svg>
-
           </span>
 
           <span className="texto-navegacion">
@@ -282,7 +317,6 @@ function BarraLateral({ pantallaActual, navegar }) {
         </button>
 
       </div>
-
     </aside>
   );
 }

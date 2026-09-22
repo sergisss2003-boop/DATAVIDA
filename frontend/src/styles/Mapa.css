@@ -1,6 +1,5 @@
 /* =========================================
    DATAVIDA
-   VISUALIZACIÓN
    MAPA DE TERRITORIOS PDET
    ========================================= */
 
@@ -19,6 +18,7 @@
   width: 100%;
   margin-bottom: 22px;
 }
+
 .pagina-mapa__etiqueta {
   display: inline-block;
   margin: 0 0 7px;
@@ -28,6 +28,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
 .encabezado-mapa h1 {
   margin: 0 0 8px;
   color: var(--verde-petroleo);
@@ -54,7 +55,6 @@
   margin-bottom: 24px;
   padding: 20px;
   box-sizing: border-box;
-
   border: 1px solid rgba(63, 167, 150, 0.28);
   border-radius: 18px;
 
@@ -101,11 +101,12 @@
 
   border: 1px solid #d2dfda;
   border-radius: 11px;
+
   outline: none;
 
   background: rgba(255, 255, 255, 0.9);
-  color: var(--verde-petroleo);
 
+  color: var(--verde-petroleo);
   font-family: var(--fuente-base);
   font-size: 13px;
 
@@ -131,7 +132,7 @@
 }
 
 /* =========================================
-   BOTÓN CONSULTAR
+   BOTÓN
    ========================================= */
 
 .boton-consultar-mapa {
@@ -142,6 +143,7 @@
   border-radius: 11px;
 
   background: var(--verde-petroleo);
+
   color: var(--blanco);
 
   font-family: var(--fuente-base);
@@ -149,6 +151,7 @@
   font-weight: 600;
 
   white-space: nowrap;
+
   cursor: pointer;
 
   transition:
@@ -179,7 +182,7 @@
 
   grid-template-columns:
     minmax(0, 2fr)
-    minmax(280px, 0.85fr);
+    minmax(260px, 0.75fr);
 
   gap: 24px;
 }
@@ -191,6 +194,7 @@
 .tarjeta-mapa-pdet {
   position: relative;
   min-width: 0;
+
   padding: 24px;
   box-sizing: border-box;
 
@@ -226,8 +230,8 @@
   margin: 0 0 5px;
 
   color: var(--verde-petroleo);
-  font-family: var(--fuente-titulo);
 
+  font-family: var(--fuente-titulo);
   font-size: 16px;
   line-height: 1.4;
   font-weight: 600;
@@ -237,12 +241,13 @@
   margin: 0;
 
   color: #7a8986;
+
   font-size: 11px;
   line-height: 1.5;
 }
 
 /* =========================================
-   LEYENDA MAPA
+   LEYENDA
    ========================================= */
 
 .leyenda-mapa-pdet {
@@ -260,6 +265,7 @@
 .leyenda-mapa-pdet span {
   display: flex;
   align-items: center;
+
   gap: 5px;
 
   white-space: nowrap;
@@ -301,12 +307,13 @@
 }
 
 /* =========================================
-   SVG COLOMBIA
+   SVG
    ========================================= */
 
 .mapa-colombia-pdet {
   width: 100%;
   max-width: 510px;
+
   height: auto;
 
   display: block;
@@ -377,6 +384,7 @@
   margin: 0 0 4px;
 
   color: #84928f;
+
   font-size: 9px;
   font-weight: 600;
 
@@ -388,14 +396,15 @@
   margin: 0 0 10px;
 
   color: var(--verde-petroleo);
-  font-family: var(--fuente-titulo);
 
+  font-family: var(--fuente-titulo);
   font-size: 14px;
   font-weight: 700;
 }
 
 .informacion-mapa-pdet strong {
   display: block;
+
   margin-bottom: 3px;
 
   color: var(--verde-petroleo);
@@ -407,6 +416,7 @@
 
 .informacion-mapa-pdet span {
   display: block;
+
   max-width: 150px;
 
   color: #7b8986;
@@ -416,7 +426,7 @@
 }
 
 /* =========================================
-   CERRAR INFORMACIÓN
+   CERRAR
    ========================================= */
 
 .cerrar-informacion-mapa {
@@ -454,7 +464,7 @@
 }
 
 /* =========================================
-   PANEL DERECHO
+   PANEL LATERAL
    ========================================= */
 
 .panel-mapa-pdet {
@@ -467,67 +477,7 @@
 }
 
 /* =========================================
-   TARJETA INFO PDET
-   ========================================= */
-
-.tarjeta-info-pdet {
-  padding: 22px;
-  box-sizing: border-box;
-
-  border: 1px solid rgba(63, 167, 150, 0.30);
-  border-radius: 17px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffffff 0%,
-      #fbfdfc 55%,
-      #edf7f3 100%
-    );
-
-  box-shadow: var(--sombra-suave);
-}
-
-.tarjeta-info-pdet__etiqueta {
-  display: inline-flex;
-  align-items: center;
-
-  min-height: 24px;
-  padding: 0 9px;
-  margin-bottom: 12px;
-
-  border-radius: 999px;
-
-  background: #e6f3ef;
-  color: var(--verde-petroleo);
-
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: 0.06em;
-}
-
-.tarjeta-info-pdet h2 {
-  margin: 0 0 9px;
-
-  color: var(--verde-petroleo);
-  font-family: var(--fuente-titulo);
-
-  font-size: 16px;
-  line-height: 1.35;
-}
-
-.tarjeta-info-pdet p {
-  margin: 0;
-
-  color: #6f7f7c;
-
-  font-size: 11px;
-  line-height: 1.7;
-}
-
-/* =========================================
-   TARJETA SELECCIÓN
+   TERRITORIO SELECCIONADO
    ========================================= */
 
 .tarjeta-seleccion-pdet {
@@ -566,8 +516,8 @@
   margin: 0 0 13px;
 
   color: var(--verde-petroleo);
-  font-family: var(--fuente-titulo);
 
+  font-family: var(--fuente-titulo);
   font-size: 15px;
 }
 
@@ -590,140 +540,145 @@
 }
 
 /* =========================================
-   SECCIONES ESTADÍSTICAS
+   SECCIONES DE INDICADORES
+   LAS DOS VAN JUNTAS
    ========================================= */
 
-.seccion-estadisticas,
-.seccion-evolucion {
+.seccion-indicadores {
   width: 100%;
+
   margin-top: 28px;
-}
 
-/* =========================================
-   ENCABEZADOS ESTADÍSTICAS
-   ========================================= */
-
-.encabezado-estadisticas {
-  margin-bottom: 16px;
-}
-
-.estadistica-etiqueta {
-  margin: 0 0 7px;
-
-  color: var(--dorado);
-
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.encabezado-estadisticas h2 {
-  margin: 0 0 7px;
-
-  color: var(--verde-petroleo);
-  font-family: var(--fuente-titulo);
-
-  font-size: 19px;
-  line-height: 1.35;
-  font-weight: 700;
-}
-
-.encabezado-estadisticas > p:last-child {
-  margin: 0;
-
-  color: #71817e;
-
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-/* =========================================
-   COMPARACIÓN
-   ========================================= */
-
-.tarjetas-comparacion {
   display: grid;
 
   grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    minmax(0, 1fr)
+    minmax(0, 1fr);
 
-  gap: 15px;
+  gap: 20px;
 }
 
-.tarjeta-comparacion {
-  position: relative;
+/* =========================================
+   TARJETA INDICADOR
+   ========================================= */
 
+.tarjeta-indicador {
   min-width: 0;
 
-  padding: 18px;
+  padding: 20px;
   box-sizing: border-box;
 
   border: 1px solid rgba(63, 167, 150, 0.30);
-  border-radius: 15px;
+  border-radius: 18px;
 
   background:
     linear-gradient(
       145deg,
       #ffffff 0%,
       #fbfdfc 55%,
-      #eef7f3 100%
+      #edf7f3 100%
     );
 
   box-shadow: var(--sombra-suave);
-
-  overflow: hidden;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
 }
 
-.tarjeta-comparacion:hover {
-  transform: translateY(-2px);
+/* =========================================
+   ENCABEZADO INDICADOR
+   ========================================= */
 
-  border-color: rgba(63, 167, 150, 0.48);
-
-  box-shadow:
-    0 10px 24px rgba(15, 46, 42, 0.09);
-}
-
-.comparacion-superior {
+.encabezado-indicador {
   display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+.indicador-etiqueta {
+  margin: 0 0 6px;
+
+  color: var(--dorado);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.encabezado-indicador h2 {
+  margin: 0;
+
+  color: var(--verde-petroleo);
+
+  font-family: var(--fuente-titulo);
+
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.subtitulo-indicador {
+  margin: 5px 0 0;
+
+  color: #71817e;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   IPM DEPARTAMENTOS
+   ========================================= */
+
+.lista-departamentos {
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.fila-departamento {
+  width: 100%;
+}
+
+.fila-departamento__superior {
+  display: flex;
+
   align-items: center;
   justify-content: space-between;
 
   gap: 10px;
-  margin-bottom: 14px;
+
+  margin-bottom: 6px;
 }
 
-.comparacion-superior span {
+.fila-departamento__superior span {
   color: #536560;
 
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* =========================================
-   PORCENTAJES NEGROS
-   ========================================= */
+.fila-departamento__superior strong {
+  color: #202b29;
 
-.comparacion-superior strong {
-  color: #202b29 !important;
-
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 700;
 
   white-space: nowrap;
 }
 
-/* =========================================
-   BARRA COMPARACIÓN
-   ========================================= */
-
-.barra-comparacion {
+.barra-departamento {
   width: 100%;
   height: 7px;
 
@@ -734,7 +689,7 @@
   background: #deebe7;
 }
 
-.barra-comparacion__relleno {
+.barra-departamento__relleno {
   height: 100%;
 
   border-radius: 999px;
@@ -743,77 +698,11 @@
 }
 
 /* =========================================
-   COLORES VARIADOS DE BARRAS
-   ========================================= */
-
-.tarjeta-comparacion:nth-child(1)
-.barra-comparacion__relleno {
-  background: linear-gradient(
-    90deg,
-    #3fa796,
-    #63c3ad
-  );
-}
-
-.tarjeta-comparacion:nth-child(2)
-.barra-comparacion__relleno {
-  background: linear-gradient(
-    90deg,
-    #d5a438,
-    #e7c35d
-  );
-}
-
-.tarjeta-comparacion:nth-child(3)
-.barra-comparacion__relleno {
-  background: linear-gradient(
-    90deg,
-    #d9786a,
-    #e79b8f
-  );
-}
-
-.tarjeta-comparacion:nth-child(4)
-.barra-comparacion__relleno {
-  background: linear-gradient(
-    90deg,
-    #6598c9,
-    #8ab5dc
-  );
-}
-
-.tarjeta-comparacion:nth-child(5)
-.barra-comparacion__relleno {
-  background: linear-gradient(
-    90deg,
-    #9378bd,
-    #b29bd1
-  );
-}
-
-.tarjeta-comparacion:nth-child(6)
-.barra-comparacion__relleno {
-  background: linear-gradient(
-    90deg,
-    #d3934e,
-    #e5b76f
-  );
-}
-
-/* =========================================
-   EVOLUCIÓN
+   EVOLUCIÓN NACIONAL
    ========================================= */
 
 .tarjeta-evolucion {
   position: relative;
-
-  width: 100%;
-
-  padding: 22px;
-  box-sizing: border-box;
-
-  border: 1px solid #9edbd0;
-  border-radius: 20px;
 
   background:
     linear-gradient(
@@ -822,330 +711,311 @@
       #f9fdfc 45%,
       #edf8f4 100%
     );
-
-  box-shadow:
-    0 12px 30px rgba(36, 67, 61, 0.08);
 }
 
-/* =========================================
-   RESUMEN EVOLUCIÓN
-   ========================================= */
-
-.resumen-evolucion {
+.resumen-ipm {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  padding-bottom: 18px;
+  flex-direction: column;
 
-  border-bottom: 1px solid #dceae5;
+  align-items: flex-end;
+
+  gap: 2px;
 }
 
-.resumen-evolucion span {
-  color: #71817e;
+.resumen-ipm span {
+  color: #879591;
 
-  font-size: 11px;
+  font-size: 8px;
   font-weight: 600;
 }
 
-.resumen-evolucion strong {
+.resumen-ipm strong {
   color: var(--dorado);
 
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 /* =========================================
-   NUEVO GRÁFICO DE EVOLUCIÓN
+   GRÁFICO
    ========================================= */
 
-/*
-   IMPORTANTE:
-
-   Se eliminan las líneas diagonales anteriores.
-   Ahora cada periodo tiene:
-   - una línea vertical
-   - un punto
-   - un valor
-   - una posición independiente
-
-   Esto evita que las líneas atraviesen
-   los textos y años.
-*/
-
-.grafico-evolucion {
+.grafico-area {
   position: relative;
 
   width: 100%;
-  height: 270px;
-
-  margin-top: 18px;
+  height: 230px;
 
   overflow: hidden;
+
+  margin-top: 5px;
 }
 
-/* =========================================
-   ÁREA DEL GRÁFICO
-   ========================================= */
+.lineas-guia {
+  position: absolute;
 
-.linea-grafico {
-  position: relative;
+  left: 0;
+  right: 0;
+  top: 10px;
+  bottom: 32px;
 
-  width: calc(100% - 30px);
-  height: 205px;
+  display: flex;
 
-  margin: 0 auto;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  z-index: 0;
+}
+
+.lineas-guia span {
+  width: 100%;
+  height: 1px;
+
+  background: #e4eeeb;
+}
+
+.grafico-area__contenido {
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+
+  top: 5px;
+  bottom: 28px;
 
   display: grid;
 
   grid-template-columns:
     repeat(5, 1fr);
 
-  align-items: stretch;
-
-  border-bottom: 1px solid #dfe9e5;
+  z-index: 2;
 }
 
 /* =========================================
-   LÍNEAS HORIZONTALES DE REFERENCIA
+   ÁREA DEGRADADA
    ========================================= */
 
-.linea-grafico::before,
-.linea-grafico::after {
-  content: "";
-
+.area-degradado {
   position: absolute;
 
   left: 0;
   right: 0;
+  bottom: 0;
 
-  height: 1px;
+  height: 72%;
 
-  background: #e6efec;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(63, 167, 150, 0.22) 0%,
+      rgba(63, 167, 150, 0.10) 40%,
+      rgba(63, 167, 150, 0.02) 100%
+    );
 
-  pointer-events: none;
+  clip-path: polygon(
+    0% 25%,
+    25% 39%,
+    50% 50%,
+    75% 63%,
+    100% 75%,
+    100% 100%,
+    0% 100%
+  );
 
   z-index: 0;
-}
 
-.linea-grafico::before {
-  top: 30%;
-}
-
-.linea-grafico::after {
-  top: 60%;
+  pointer-events: none;
 }
 
 /* =========================================
    PUNTOS
    ========================================= */
 
-.punto-evolucion {
+.punto-area {
   position: relative;
 
   width: 100%;
   height: 100%;
 
-  flex-shrink: 0;
-
-  z-index: 2;
+  z-index: 5;
 }
 
-/* =========================================
-   POSICIONES DE LOS DATOS
-
-   Valores más altos aparecen más arriba.
-   Valores más bajos más abajo.
-   ========================================= */
-
-.punto-evolucion:nth-child(1) {
-  --posicion-punto: 32%;
-}
-
-.punto-evolucion:nth-child(2) {
-  --posicion-punto: 39%;
-}
-
-.punto-evolucion:nth-child(3) {
-  --posicion-punto: 45%;
-}
-
-.punto-evolucion:nth-child(4) {
-  --posicion-punto: 52%;
-}
-
-.punto-evolucion:nth-child(5) {
-  --posicion-punto: 59%;
-}
-
-/* =========================================
-   LÍNEA VERTICAL DEL PUNTO
-   ========================================= */
-
-.punto-evolucion::before {
-  content: "";
-
+.valor-area {
   position: absolute;
 
   left: 50%;
 
-  top: var(--posicion-punto);
+  transform: translateX(-50%);
 
-  width: 2px;
+  color: #202b29;
 
-  height: calc(100% - var(--posicion-punto));
+  font-size: 10px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  z-index: 8;
+}
+
+.punto-area__circulo {
+  position: absolute;
+
+  left: 50%;
+
+  width: 11px;
+  height: 11px;
+
+  transform: translate(-50%, 50%);
+
+  border: 3px solid #ffffff;
+
+  border-radius: 50%;
+
+  background: #3fa796;
+
+  box-shadow:
+    0 3px 8px rgba(63, 167, 150, 0.30);
+
+  z-index: 7;
+}
+
+.linea-vertical-area {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 1px;
 
   transform: translateX(-50%);
 
   background:
     linear-gradient(
       180deg,
-      rgba(63, 167, 150, 0.35),
-      rgba(63, 167, 150, 0.08)
+      rgba(63, 167, 150, 0.30),
+      rgba(63, 167, 150, 0.04)
     );
 
-  z-index: 1;
+  z-index: 2;
 }
 
-/* =========================================
-   OCULTAR ANTIGUAS LÍNEAS DIAGONALES
-   ========================================= */
-
-.linea-conexion {
-  display: none !important;
-}
-
-/* =========================================
-   CÍRCULO
-   ========================================= */
-
-.punto-evolucion__circulo {
+.periodo-area {
   position: absolute;
 
   left: 50%;
-  top: var(--posicion-punto);
-
-  width: 13px;
-  height: 13px;
-
-  transform: translate(-50%, -50%);
-
-  border: 3px solid #ffffff;
-  border-radius: 50%;
-
-  background: #3fa796;
-
-  box-shadow:
-    0 3px 9px rgba(63, 167, 150, 0.28);
-
-  z-index: 4;
-}
-
-/* =========================================
-   COLORES DE LOS PUNTOS
-   ========================================= */
-
-.punto-evolucion:nth-child(1)
-.punto-evolucion__circulo {
-  background: #3fa796;
-}
-
-.punto-evolucion:nth-child(2)
-.punto-evolucion__circulo {
-  background: #dca83e;
-}
-
-.punto-evolucion:nth-child(3)
-.punto-evolucion__circulo {
-  background: #d9786a;
-}
-
-.punto-evolucion:nth-child(4)
-.punto-evolucion__circulo {
-  background: #6d9dcc;
-}
-
-.punto-evolucion:nth-child(5)
-.punto-evolucion__circulo {
-  background: #9b82c4;
-}
-
-/* =========================================
-   VALOR DEL PUNTO
-   ========================================= */
-
-.valor-evolucion {
-  position: absolute;
-
-  left: 50%;
-  top: calc(var(--posicion-punto) - 26px);
-
-  transform: translateX(-50%);
-
-  color: #202b29 !important;
-
-  font-size: 11px;
-  font-weight: 700;
-
-  white-space: nowrap;
-
-  z-index: 5;
-}
-
-/* =========================================
-   PERIODOS
-   ========================================= */
-
-.periodo-evolucion {
-  position: absolute;
-
-  left: 50%;
-  bottom: 8px;
+  bottom: -23px;
 
   transform: translateX(-50%);
 
   color: #71817e;
 
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
 
   white-space: nowrap;
 }
 
 /* =========================================
-   VALORES ABAJO
+   LÍNEA DEL GRÁFICO
    ========================================= */
 
-.valores-evolucion {
+.linea-area {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 0;
+  bottom: 0;
+
+  pointer-events: none;
+
+  z-index: 6;
+}
+
+.linea-area::before {
+  content: "";
+
+  position: absolute;
+
+  left: 10%;
+  right: 10%;
+
+  top: 42%;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #3fa796,
+      #5bc2ae
+    );
+
+  transform: rotate(
+    0deg
+  );
+
+  opacity: 0;
+}
+
+.linea-area span {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  transform: translate(
+    -50%,
+    50%
+  );
+}
+
+/* =========================================
+   VALORES INFERIORES
+   ========================================= */
+
+.valores-grafico {
   display: grid;
 
   grid-template-columns:
     repeat(5, 1fr);
 
-  gap: 10px;
+  gap: 5px;
 
-  margin-top: 10px;
+  margin-top: 2px;
+
+  padding-top: 8px;
+
+  border-top: 1px solid #dceae5;
 }
 
-.dato-evolucion {
+.valor-grafico {
   display: flex;
 
   flex-direction: column;
+
   align-items: center;
 
-  gap: 3px;
+  gap: 2px;
 }
 
-.dato-evolucion span {
+.valor-grafico span {
   color: #879591;
 
-  font-size: 9px;
+  font-size: 8px;
 }
 
-.dato-evolucion strong {
+.valor-grafico strong {
   color: #202b29;
 
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
 }
 
@@ -1160,19 +1030,19 @@
   }
 
   .panel-mapa-pdet {
-    display: grid;
+    display: block;
+  }
 
-    grid-template-columns:
-      1fr 1fr;
+  .tarjeta-seleccion-pdet {
+    width: 100%;
+  }
+
+  .seccion-indicadores {
+    grid-template-columns: 1fr 1fr;
   }
 
   .contenedor-mapa-pdet {
     min-height: 500px;
-  }
-
-  .tarjetas-comparacion {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1209,21 +1079,16 @@
     justify-content: flex-start;
   }
 
-  .panel-mapa-pdet {
+  .seccion-indicadores {
     grid-template-columns: 1fr;
   }
 
-  .tarjetas-comparacion {
-    grid-template-columns:
-      1fr 1fr;
+  .contenedor-mapa-pdet {
+    min-height: 500px;
   }
 
-  .grafico-evolucion {
-    height: 245px;
-  }
-
-  .linea-grafico {
-    height: 185px;
+  .tarjeta-indicador {
+    padding: 18px;
   }
 }
 
@@ -1247,6 +1112,7 @@
 
   .filtros-mapa {
     padding: 15px;
+
     border-radius: 14px;
   }
 
@@ -1262,6 +1128,7 @@
 
   .tarjeta-mapa-pdet {
     padding: 17px;
+
     border-radius: 14px;
   }
 
@@ -1275,6 +1142,7 @@
 
   .contenedor-mapa-pdet {
     min-height: 390px;
+
     border-radius: 12px;
   }
 
@@ -1298,85 +1166,63 @@
     font-size: 20px;
   }
 
-  .tarjeta-info-pdet,
   .tarjeta-seleccion-pdet {
     padding: 17px;
+
     border-radius: 14px;
   }
 
   /* =====================================
-     COMPARACIÓN
+     INDICADORES
      ===================================== */
 
-  .seccion-estadisticas,
-  .seccion-evolucion {
+  .seccion-indicadores {
     margin-top: 22px;
-  }
 
-  .encabezado-estadisticas h2 {
-    font-size: 17px;
-  }
-
-  .tarjetas-comparacion {
     grid-template-columns: 1fr;
 
-    gap: 12px;
+    gap: 16px;
   }
 
-  .tarjeta-comparacion {
-    padding: 15px;
-  }
-
-  .comparacion-superior strong {
-    color: #202b29 !important;
-    font-size: 17px;
-  }
-
-  /* =====================================
-     EVOLUCIÓN
-     ===================================== */
-
-  .tarjeta-evolucion {
+  .tarjeta-indicador {
     padding: 17px;
+
     border-radius: 14px;
   }
 
-  .resumen-evolucion strong {
-    color: var(--dorado);
-    font-size: 21px;
+  .encabezado-indicador h2 {
+    font-size: 16px;
   }
 
-  .grafico-evolucion {
-    height: 215px;
-    margin-top: 15px;
+  /* =====================================
+     GRÁFICO
+     ===================================== */
+
+  .grafico-area {
+    height: 210px;
   }
 
-  .linea-grafico {
-    width: calc(100% - 10px);
-    height: 165px;
-  }
-
-  .valor-evolucion {
-    top: calc(var(--posicion-punto) - 22px);
-
+  .valor-area {
     font-size: 9px;
   }
 
-  .punto-evolucion__circulo {
+  .punto-area__circulo {
     width: 9px;
     height: 9px;
 
     border-width: 2px;
   }
 
-  .periodo-evolucion {
-    bottom: 5px;
-
-    font-size: 9px;
+  .periodo-area {
+    font-size: 8px;
   }
 
-  .valores-evolucion {
+  .valores-grafico {
     display: none;
+  }
+
+  .resumen-ipm strong {
+    font-size: 18px;
   }
 }
 
@@ -1398,19 +1244,11 @@
     font-size: 9px;
   }
 
-  .encabezado-estadisticas h2 {
-    font-size: 16px;
+  .grafico-area {
+    height: 195px;
   }
 
-  .grafico-evolucion {
-    height: 200px;
-  }
-
-  .linea-grafico {
-    height: 150px;
-  }
-
-  .valor-evolucion {
-    font-size: 8px;
+  .encabezado-indicador h2 {
+    font-size: 15px;
   }
 }

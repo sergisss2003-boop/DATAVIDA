@@ -24,14 +24,12 @@ const datosPDET = {
   PUTUMAYO: 48.2,
   TOLIMA: 27.5,
   "VALLE DEL CAUCA": 11.7,
-
-  // Datos adicionales para la comparación
   "BOGOTA D.C": 4.2,
   "SANTAFE DE BOGOTA D.C": 4.2,
 };
 
 // ============================================
-// DATOS PARA COMPARACIÓN
+// COMPARACIÓN
 // ============================================
 
 const departamentosComparacion = [
@@ -62,7 +60,7 @@ const departamentosComparacion = [
 ];
 
 // ============================================
-// DATOS EVOLUCIÓN
+// EVOLUCIÓN IPM
 // ============================================
 
 const evolucionIPM = [
@@ -115,7 +113,7 @@ const obtenerValor = (nombre) => {
 };
 
 // ============================================
-// COLORES
+// COLORES MAPA
 // ============================================
 
 const obtenerColor = (valor) => {
@@ -143,7 +141,7 @@ const obtenerColor = (valor) => {
 };
 
 // ============================================
-// COORDENADAS DEL GEOJSON
+// COORDENADAS GEOJSON
 // ============================================
 
 const obtenerCoordenadas = (geoJSON) => {
@@ -173,7 +171,8 @@ const obtenerCoordenadas = (geoJSON) => {
   return coordenadas;
 };
 
-const todasLasCoordenadas = obtenerCoordenadas(colombiaGeoJSON);
+const todasLasCoordenadas =
+  obtenerCoordenadas(colombiaGeoJSON);
 
 const longitudes = todasLasCoordenadas.map(
   (coordenada) => coordenada[0]
@@ -297,7 +296,7 @@ export default function Mapa() {
     .sort();
 
   // ============================================
-  // SELECCIONAR DEPARTAMENTO
+  // SELECCIONAR
   // ============================================
 
   const seleccionarDepartamento = (feature) => {
@@ -315,7 +314,7 @@ export default function Mapa() {
   };
 
   // ============================================
-  // FILTRO DEPARTAMENTO
+  // FILTRO
   // ============================================
 
   const mostrarDepartamento = (nombre) => {
@@ -344,12 +343,9 @@ export default function Mapa() {
   return (
     <section className="pagina-mapa">
 
-      {/* ========================================
-          ENCABEZADO
-      ======================================== */}
+      {/* ENCABEZADO */}
 
       <div className="encabezado-mapa">
-
         <div>
           <p className="pagina-mapa__etiqueta">
             VISUALIZACIÓN
@@ -365,24 +361,15 @@ export default function Mapa() {
             Índice de Pobreza Multidimensional.
           </p>
         </div>
-
       </div>
 
-      {/* ========================================
-          FILTROS
-      ======================================== */}
+      {/* FILTROS */}
 
       <div className="filtros-mapa">
-
         <div className="filtros-mapa__contenido">
 
-          {/* DEPARTAMENTO */}
-
           <div className="campo-mapa">
-
-            <label>
-              Departamento
-            </label>
+            <label>Departamento</label>
 
             <select
               value={filtroDepartamento}
@@ -392,7 +379,6 @@ export default function Mapa() {
                 )
               }
             >
-
               <option value="">
                 Todos
               </option>
@@ -407,18 +393,11 @@ export default function Mapa() {
                   </option>
                 )
               )}
-
             </select>
-
           </div>
 
-          {/* INDICADOR */}
-
           <div className="campo-mapa">
-
-            <label>
-              Indicador
-            </label>
+            <label>Indicador</label>
 
             <select
               value={filtroIndicador}
@@ -428,7 +407,6 @@ export default function Mapa() {
                 )
               }
             >
-
               <option value="todos">
                 Todos los indicadores
               </option>
@@ -436,18 +414,11 @@ export default function Mapa() {
               <option value="ipm">
                 Índice de Pobreza Multidimensional
               </option>
-
             </select>
-
           </div>
 
-          {/* PERIODO */}
-
           <div className="campo-mapa">
-
-            <label>
-              Periodo
-            </label>
+            <label>Periodo</label>
 
             <select
               value={filtroPeriodo}
@@ -457,7 +428,6 @@ export default function Mapa() {
                 )
               }
             >
-
               <option value="2019">
                 2019
               </option>
@@ -477,12 +447,8 @@ export default function Mapa() {
               <option value="2023">
                 2023
               </option>
-
             </select>
-
           </div>
-
-          {/* BOTÓN */}
 
           <button
             className="boton-consultar-mapa"
@@ -492,25 +458,18 @@ export default function Mapa() {
           </button>
 
         </div>
-
       </div>
 
-      {/* ========================================
-          CONTENIDO PRINCIPAL
-      ======================================== */}
+      {/* CONTENIDO PRINCIPAL */}
 
       <div className="contenido-mapa">
 
-        {/* ======================================
-            TARJETA DEL MAPA
-        ====================================== */}
+        {/* MAPA */}
 
         <div className="tarjeta-mapa-pdet">
 
           <div className="encabezado-tarjeta-mapa">
-
             <div>
-
               <h2>
                 Mapa de Colombia
               </h2>
@@ -518,10 +477,7 @@ export default function Mapa() {
               <p>
                 Territorios PDET según el IPM
               </p>
-
             </div>
-
-            {/* LEYENDA */}
 
             <div className="leyenda-mapa-pdet">
 
@@ -571,12 +527,7 @@ export default function Mapa() {
               </span>
 
             </div>
-
           </div>
-
-          {/* ====================================
-              MAPA
-          ==================================== */}
 
           <div className="contenedor-mapa-pdet">
 
@@ -637,7 +588,6 @@ export default function Mapa() {
                         )
                       }
                     >
-
                       <title>
                         {nombre}
 
@@ -645,7 +595,6 @@ export default function Mapa() {
                           ? ` - ${valor}%`
                           : " - Sin datos"}
                       </title>
-
                     </path>
                   );
                 }
@@ -653,9 +602,7 @@ export default function Mapa() {
 
             </svg>
 
-            {/* ==================================
-                INFORMACIÓN SELECCIONADA
-            ================================== */}
+            {/* INFORMACIÓN SELECCIONADA */}
 
             {seleccionado && (
               <div className="informacion-mapa-pdet">
@@ -665,6 +612,7 @@ export default function Mapa() {
                   onClick={() =>
                     setSeleccionado(null)
                   }
+                  aria-label="Cerrar información"
                 >
                   ×
                 </button>
@@ -692,35 +640,11 @@ export default function Mapa() {
             )}
 
           </div>
-
         </div>
 
-        {/* ======================================
-            PANEL DERECHO
-        ====================================== */}
+        {/* PANEL LATERAL */}
 
         <aside className="panel-mapa-pdet">
-
-          {/* TARJETA PDET */}
-
-          <div className="tarjeta-info-pdet">
-
-            <span className="tarjeta-info-pdet__etiqueta">
-              PDET
-            </span>
-
-            <h2>
-              Territorios priorizados
-            </h2>
-
-            <p>
-              Consulta los departamentos
-              representados en el mapa y revisa
-              su comportamiento frente al Índice
-              de Pobreza Multidimensional.
-            </p>
-
-          </div>
 
           {/* TERRITORIO SELECCIONADO */}
 
@@ -736,11 +660,9 @@ export default function Mapa() {
               </h3>
 
               <div className="valor-pdet">
-
                 {seleccionado.valor !== null
                   ? `${seleccionado.valor}%`
                   : "Sin datos"}
-
               </div>
 
               <p>
@@ -755,122 +677,116 @@ export default function Mapa() {
 
       </div>
 
-      {/* ========================================
-          COMPARACIÓN DEL INDICADOR
-      ======================================== */}
+      {/* ============================================
+          ESTADÍSTICAS JUNTAS
+      ============================================ */}
 
-      <section className="seccion-estadisticas">
+      <section className="seccion-indicadores">
 
-        <div className="encabezado-estadisticas">
+        {/* IPM POR DEPARTAMENTO */}
 
-          <p className="estadistica-etiqueta">
-            COMPARACIÓN DEL INDICADOR
-          </p>
+        <div className="tarjeta-indicador">
 
-          <h2>
-            Departamentos con mayor IPM
-          </h2>
+          <div className="encabezado-indicador">
+            <div>
+              <p className="indicador-etiqueta">
+                COMPARACIÓN
+              </p>
 
-          <p>
-            Comparación del Índice de Pobreza
-            Multidimensional entre departamentos.
-          </p>
+              <h2>
+                IPM por departamento
+              </h2>
+            </div>
+          </div>
 
-        </div>
+          <div className="lista-departamentos">
 
-        <div className="tarjetas-comparacion">
+            {departamentosComparacion.map(
+              (departamento, index) => (
+                <div
+                  className="fila-departamento"
+                  key={departamento.nombre}
+                >
 
-          {departamentosComparacion.map(
-            (departamento) => (
+                  <div className="fila-departamento__superior">
 
-              <div
-                className="tarjeta-comparacion"
-                key={departamento.nombre}
-              >
+                    <span>
+                      {departamento.nombre}
+                    </span>
 
-                <div className="comparacion-superior">
+                    <strong>
+                      {departamento.valor}%
+                    </strong>
 
-                  <span>
-                    {departamento.nombre}
-                  </span>
+                  </div>
 
-                  <strong>
-                    {departamento.valor}%
-                  </strong>
+                  <div className="barra-departamento">
+
+                    <div
+                      className="barra-departamento__relleno"
+                      style={{
+                        width: `${Math.min(
+                          departamento.valor,
+                          100
+                        )}%`,
+                        backgroundColor:
+                          obtenerColor(
+                            departamento.valor
+                          ),
+                      }}
+                    />
+
+                  </div>
 
                 </div>
-
-                <div className="barra-comparacion">
-
-                  <div
-                    className="barra-comparacion__relleno"
-                    style={{
-                      width: `${Math.min(
-                        departamento.valor,
-                        100
-                      )}%`,
-                      backgroundColor:
-                        obtenerColor(
-                          departamento.valor
-                        ),
-                    }}
-                  />
-
-                </div>
-
-              </div>
-
-            )
-          )}
-
-        </div>
-
-      </section>
-
-      {/* ========================================
-          EVOLUCIÓN DEL IPM
-      ======================================== */}
-
-      <section className="seccion-evolucion">
-
-        <div className="encabezado-estadisticas">
-
-          <p className="estadistica-etiqueta">
-            EVOLUCIÓN
-          </p>
-
-          <h2>
-            Evolución del IPM
-          </h2>
-
-          <p>
-            Comportamiento del promedio nacional
-            durante el periodo seleccionado.
-          </p>
-
-        </div>
-
-        <div className="tarjeta-evolucion">
-
-          {/* RESUMEN */}
-
-          <div className="resumen-evolucion">
-
-            <span>
-              Promedio nacional
-            </span>
-
-            <strong>
-              23.8%
-            </strong>
+              )
+            )}
 
           </div>
 
-          {/* GRÁFICO */}
+        </div>
 
-          <div className="grafico-evolucion">
+        {/* EVOLUCIÓN NACIONAL */}
 
-            <div className="linea-grafico">
+        <div className="tarjeta-indicador tarjeta-evolucion">
+
+          <div className="encabezado-indicador">
+
+            <div>
+              <p className="indicador-etiqueta">
+                EVOLUCIÓN
+              </p>
+
+              <h2>
+                Evolución nacional IPM
+              </h2>
+
+              <p className="subtitulo-indicador">
+                Comportamiento del promedio nacional.
+              </p>
+            </div>
+
+            <div className="resumen-ipm">
+              <span>
+                Promedio 2023
+              </span>
+
+              <strong>
+                23.8%
+              </strong>
+            </div>
+
+          </div>
+
+          <div className="grafico-area">
+
+            <div className="lineas-guia">
+              <span />
+              <span />
+              <span />
+            </div>
+
+            <div className="grafico-area__contenido">
 
               {evolucionIPM.map(
                 (dato, index) => {
@@ -883,58 +799,45 @@ export default function Mapa() {
                       (maximo - minimo)) *
                     100;
 
+                  const posicion = Math.max(
+                    12,
+                    Math.min(
+                      porcentaje,
+                      82
+                    )
+                  );
+
                   return (
                     <div
-                      className="punto-evolucion"
+                      className="punto-area"
                       key={dato.periodo}
                     >
 
                       <div
-                        className="valor-evolucion"
+                        className="valor-area"
                         style={{
-                          bottom: `${Math.max(
-                            15,
-                            Math.min(
-                              porcentaje,
-                              90
-                            )
-                          )}%`,
+                          bottom: `${posicion}%`,
                         }}
                       >
                         {dato.valor}%
                       </div>
 
                       <div
-                        className="punto-evolucion__circulo"
+                        className="punto-area__circulo"
                         style={{
-                          bottom: `${Math.max(
-                            15,
-                            Math.min(
-                              porcentaje,
-                              90
-                            )
-                          )}%`,
+                          bottom: `${posicion}%`,
                         }}
                       />
 
-                      {index <
-                        evolucionIPM.length -
-                          1 && (
-                        <div
-                          className="linea-conexion"
-                          style={{
-                            bottom: `${Math.max(
-                              15,
-                              Math.min(
-                                porcentaje,
-                                90
-                              )
-                            )}%`,
-                          }}
-                        />
-                      )}
+                      <div
+                        className="linea-vertical-area"
+                        style={{
+                          bottom: 0,
+                          height: `${posicion}%`,
+                        }}
+                      />
 
-                      <span className="periodo-evolucion">
+                      <span className="periodo-area">
                         {dato.periodo}
                       </span>
 
@@ -943,19 +846,51 @@ export default function Mapa() {
                 }
               )}
 
+              <div className="area-degradado" />
+
+              <div className="linea-area">
+                {evolucionIPM.map(
+                  (dato) => {
+
+                    const maximo = 30;
+                    const minimo = 20;
+
+                    const porcentaje =
+                      ((dato.valor - minimo) /
+                        (maximo - minimo)) *
+                      100;
+
+                    const posicion = Math.max(
+                      12,
+                      Math.min(
+                        porcentaje,
+                        82
+                      )
+                    );
+
+                    return (
+                      <span
+                        key={dato.periodo}
+                        style={{
+                          bottom: `${posicion}%`,
+                        }}
+                      />
+                    );
+                  }
+                )}
+              </div>
+
             </div>
 
           </div>
 
-          {/* VALORES */}
-
-          <div className="valores-evolucion">
+          <div className="valores-grafico">
 
             {evolucionIPM.map(
               (dato) => (
                 <div
                   key={dato.periodo}
-                  className="dato-evolucion"
+                  className="valor-grafico"
                 >
                   <span>
                     {dato.periodo}

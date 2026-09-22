@@ -1,7 +1,8 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+
 import Sidebar from "./Sidebar";
 
-export default function AppLayout() {
+export default function DiseñoApp() {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,6 +18,34 @@ export default function AppLayout() {
 
       case "visualizacion":
         navigate("/app/mapa");
+        break;
+
+      case "comparar":
+        navigate("/app/comparar");
+        break;
+
+      case "recomendaciones":
+        navigate("/app/recomendaciones");
+        break;
+
+      case "estadisticas":
+        navigate("/app/estadisticas");
+        break;
+
+      case "predicciones":
+        navigate("/app/predicciones");
+        break;
+
+      case "reportes":
+        navigate("/app/reportes");
+        break;
+
+      case "perfil":
+        navigate("/app/perfil");
+        break;
+
+      case "inicio-sesion":
+        navigate("/login");
         break;
 
       default:
@@ -40,11 +69,36 @@ export default function AppLayout() {
       return "visualizacion";
     }
 
+    if (ruta.startsWith("/app/comparar")) {
+      return "comparar";
+    }
+
+    if (ruta.startsWith("/app/recomendaciones")) {
+      return "recomendaciones";
+    }
+
+    if (ruta.startsWith("/app/estadisticas")) {
+      return "estadisticas";
+    }
+
+    if (ruta.startsWith("/app/predicciones")) {
+      return "predicciones";
+    }
+
+    if (ruta.startsWith("/app/reportes")) {
+      return "reportes";
+    }
+
+    if (ruta.startsWith("/app/perfil")) {
+      return "perfil";
+    }
+
     return "inicio";
   };
 
   return (
     <div className="app-shell">
+
       <Sidebar
         pantallaActual={obtenerPantallaActual()}
         navegar={navegar}
@@ -53,6 +107,7 @@ export default function AppLayout() {
       <div className="app-contenido">
         <Outlet />
       </div>
+
     </div>
   );
 }
