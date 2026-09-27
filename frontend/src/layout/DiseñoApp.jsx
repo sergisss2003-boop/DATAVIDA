@@ -1,5 +1,4 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-
 import BarraLateral from "./BarraLateral";
 
 export default function DiseñoApp() {
@@ -8,43 +7,43 @@ export default function DiseñoApp() {
 
   const navegar = (pantalla) => {
     switch (pantalla) {
-      case "inicio":
+      case "home":
         navigate("/app");
         break;
 
-      case "indicadores":
+      case "indicators":
         navigate("/app/indicadores");
         break;
 
-      case "visualizacion":
+      case "visualization":
         navigate("/app/mapa");
         break;
 
-      case "comparar":
+      case "compare":
         navigate("/app/comparar");
         break;
 
-      case "estadisticas":
+      case "statistics":
         navigate("/app/estadisticas");
         break;
 
-      case "predicciones":
+      case "predictions":
         navigate("/app/predicciones");
         break;
 
-      case "recomendaciones":
+      case "recommendations":
         navigate("/app/recomendaciones");
         break;
 
-      case "reportes":
+      case "reports":
         navigate("/app/reportes");
         break;
 
-      case "perfil":
+      case "profile":
         navigate("/app/perfil");
         break;
 
-      case "inicio-sesion":
+      case "login":
         navigate("/login");
         break;
 
@@ -58,53 +57,49 @@ export default function DiseñoApp() {
     const ruta = location.pathname;
 
     if (ruta === "/app" || ruta === "/app/") {
-      return "inicio";
+      return "home";
     }
 
     if (ruta.startsWith("/app/indicadores")) {
-      return "indicadores";
+      return "indicators";
     }
 
     if (ruta.startsWith("/app/mapa")) {
-      return "visualizacion";
+      return "visualization";
     }
 
     if (ruta.startsWith("/app/comparar")) {
-      return "comparar";
+      return "compare";
     }
 
     if (ruta.startsWith("/app/estadisticas")) {
-      return "estadisticas";
+      return "statistics";
     }
 
     if (ruta.startsWith("/app/predicciones")) {
-      return "predicciones";
+      return "predictions";
     }
 
     if (ruta.startsWith("/app/recomendaciones")) {
-      return "recomendaciones";
+      return "recommendations";
     }
 
     if (ruta.startsWith("/app/reportes")) {
-      return "reportes";
+      return "reports";
     }
 
     if (ruta.startsWith("/app/perfil")) {
-      return "perfil";
+      return "profile";
     }
 
-    if (ruta.startsWith("/app/ayuda")) {
-      return "ayuda";
-    }
-
-    return "inicio";
+    return "home";
   };
 
   return (
     <div className="app-shell">
       <BarraLateral
-        pantallaActual={obtenerPantallaActual()}
-        navegar={navegar}
+        current={obtenerPantallaActual()}
+        navigate={navegar}
       />
 
       <main className="app-contenido">

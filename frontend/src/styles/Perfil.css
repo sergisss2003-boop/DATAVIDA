@@ -6,154 +6,26 @@
 .perfil-pagina {
   width: 100%;
   min-height: 100vh;
-  padding: 34px 40px 55px;
   box-sizing: border-box;
-
-  background:
-    radial-gradient(
-      circle at 8% 5%,
-      rgba(228, 237, 233, 0.95) 0%,
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 94% 88%,
-      rgba(181, 121, 58, 0.09) 0%,
-      transparent 27%
-    ),
-    linear-gradient(
-      135deg,
-      #f6f3ec 0%,
-      #f2f5f1 48%,
-      #e9f0ec 100%
-    );
-
+  background: #f2f5f1;
   color: #173c34;
+  overflow-x: hidden;
 }
-
 
 /* =========================================================
-   ENCABEZADO
+   BANNER SUPERIOR
    ========================================================= */
-
-.perfil-encabezado {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 30px;
-  margin-bottom: 27px;
-}
-
-.perfil-etiqueta {
-  display: inline-block;
-  margin-bottom: 8px;
-
-  color: #b5793a;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-}
-
-.perfil-encabezado h1 {
-  margin: 0;
-
-  color: #173c34;
-
-  font-family:
-    "Sora",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-
-  font-size: clamp(28px, 3vw, 36px);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.perfil-encabezado p {
-  margin: 8px 0 0;
-
-  color: #68736d;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.perfil-encabezado-decoracion {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding-bottom: 7px;
-}
-
-.perfil-encabezado-decoracion span {
-  display: block;
-  height: 4px;
-  border-radius: 10px;
-}
-
-.perfil-encabezado-decoracion span:nth-child(1) {
-  width: 38px;
-  background: #173c34;
-}
-
-.perfil-encabezado-decoracion span:nth-child(2) {
-  width: 18px;
-  background: #4f776c;
-}
-
-.perfil-encabezado-decoracion span:nth-child(3) {
-  width: 7px;
-  background: #b5793a;
-}
-
-
-/* =========================================================
-   CONTENIDO
-   ========================================================= */
-
-.perfil-contenido {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 315px;
-  gap: 20px;
-  align-items: start;
-}
-
-
-/* =========================================================
-   TARJETA PRINCIPAL
-   ========================================================= */
-
-.tarjeta-perfil,
-.tarjeta-actividad,
-.tarjeta-seguridad {
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid #dce5df;
-  border-radius: 20px;
-
-  box-shadow:
-    0 12px 30px rgba(23, 60, 52, 0.06),
-    0 2px 7px rgba(23, 60, 52, 0.025);
-}
-
-
-/* =========================================================
-   BANNER
-   ========================================================= */
-
-.tarjeta-perfil {
-  position: relative;
-  overflow: hidden;
-}
 
 .perfil-banner {
   position: relative;
-  height: 108px;
+  width: 100%;
+  height: 190px;
   overflow: hidden;
-
   background:
     linear-gradient(
       120deg,
       #173c34 0%,
-      #245047 54%,
+      #245047 52%,
       #315f54 100%
     );
 }
@@ -162,7 +34,6 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background:
     linear-gradient(
       115deg,
@@ -182,76 +53,68 @@
 }
 
 .banner-circulo-1 {
-  width: 190px;
-  height: 190px;
-  right: -45px;
-  top: -105px;
+  width: 360px;
+  height: 360px;
+  right: -80px;
+  top: -210px;
 }
 
 .banner-circulo-2 {
-  width: 115px;
-  height: 115px;
-  right: 78px;
-  top: -65px;
+  width: 220px;
+  height: 220px;
+  right: 145px;
+  top: -135px;
 }
 
 .banner-lineas {
   position: absolute;
-  right: 35px;
-  bottom: 23px;
+  right: 55px;
+  bottom: 35px;
   display: flex;
-  gap: 6px;
+  gap: 7px;
   z-index: 2;
 }
 
 .banner-lineas span {
   display: block;
-  width: 25px;
-  height: 2px;
+  width: 38px;
+  height: 3px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.25);
 }
 
 .banner-lineas span:nth-child(2) {
-  width: 13px;
+  width: 20px;
   background: rgba(181, 121, 58, 0.8);
 }
 
 .banner-lineas span:nth-child(3) {
-  width: 5px;
+  width: 7px;
 }
 
-
 /* =========================================================
-   IDENTIDAD
+   IDENTIDAD SOBRE EL BANNER
    ========================================================= */
 
 .perfil-identidad {
   position: relative;
-
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  padding: 0 25px;
-  margin-top: -35px;
-
-  z-index: 5;
+  width: min(1180px, calc(100% - 70px));
+  margin: -20px auto 0;
+  padding: 0 0 28px;
 }
 
 .avatar-perfil {
   position: relative;
-
-  width: 78px;
-  height: 78px;
+  width: 100px;
+  height: 100px;
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 5px solid #ffffff;
-  border-radius: 23px;
+  border: 6px solid #f6f3ec;
+  border-radius: 28px;
 
   background:
     linear-gradient(
@@ -263,17 +126,15 @@
   color: #ffffff;
 
   box-shadow:
-    0 7px 18px rgba(23, 60, 52, 0.17);
+    0 10px 25px rgba(23, 60, 52, 0.18);
 }
 
 .avatar-perfil::before {
   content: "";
-
   position: absolute;
-  inset: 4px;
-
+  inset: 5px;
   border: 1px solid rgba(255, 255, 255, 0.38);
-  border-radius: 17px;
+  border-radius: 21px;
 }
 
 .avatar-perfil span {
@@ -286,20 +147,20 @@
     Arial,
     sans-serif;
 
-  font-size: 21px;
+  font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.04em;
 }
 
 .avatar-estado {
   position: absolute;
-  right: -2px;
-  bottom: -2px;
+  right: -3px;
+  bottom: -3px;
 
-  width: 14px;
-  height: 14px;
+  width: 17px;
+  height: 17px;
 
-  border: 3px solid #ffffff;
+  border: 4px solid #f6f3ec;
   border-radius: 50%;
 
   background: #5d9b72;
@@ -308,14 +169,14 @@
 
 .identidad-info {
   min-width: 0;
-  padding-top: 37px;
+  padding-bottom: 6px;
 }
 
 .identidad-nombre {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 9px;
+  gap: 10px;
 }
 
 .identidad-nombre h2 {
@@ -329,63 +190,100 @@
     Arial,
     sans-serif;
 
-  font-size: 19px;
+  font-size: 25px;
   font-weight: 700;
 }
 
 .estado-activo {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 
-  padding: 4px 8px;
+  padding: 5px 10px;
 
-  border-radius: 7px;
+  border-radius: 8px;
 
   background: #edf5ef;
   color: #4d8060;
 
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.04em;
 }
 
 .estado-activo i {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #5d9b72;
 }
 
 .identidad-info > p {
-  margin: 3px 0 9px;
-
+  margin: 5px 0 11px;
   color: #89918c;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .identidad-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 13px;
+  gap: 18px;
 }
 
 .identidad-meta span {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 
   color: #78847e;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .identidad-meta svg {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   color: #b5793a;
 }
 
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.perfil-contenido {
+  width: min(1180px, calc(100% - 70px));
+  margin: 0 auto;
+  padding-bottom: 55px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* =========================================================
+   TARJETA PRINCIPAL
+   ========================================================= */
+
+.tarjeta-perfil,
+.tarjeta-actividad,
+.tarjeta-seguridad {
+  border: 1px solid rgba(220, 229, 223, 0.9);
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 30px rgba(23, 60, 52, 0.06),
+    0 2px 7px rgba(23, 60, 52, 0.025);
+}
+
+/*
+   El perfil ya no tiene un fondo blanco gigante.
+   Se integra con el fondo de la página.
+*/
+
+.tarjeta-perfil {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.48);
+}
 
 /* =========================================================
    SEPARADOR
@@ -393,43 +291,41 @@
 
 .perfil-separador {
   height: 1px;
-  margin: 25px 25px 0;
-  background: #edf1ee;
+  margin: 0 32px;
+  background: #dfe8e2;
 }
-
 
 /* =========================================================
    INFORMACIÓN
    ========================================================= */
 
 .informacion-perfil {
-  padding: 23px 25px 27px;
+  padding: 30px 32px 34px;
 }
 
 .seccion-titulo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 19px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .seccion-titulo-icono {
-  width: 31px;
-  height: 31px;
+  width: 36px;
+  height: 36px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 9px;
-
+  border-radius: 10px;
   background: #edf3ef;
   color: #245047;
 }
 
 .seccion-titulo-icono svg {
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
 }
 
 .seccion-titulo h3 {
@@ -443,17 +339,15 @@
     Arial,
     sans-serif;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 .seccion-titulo p {
-  margin: 2px 0 0;
-
+  margin: 3px 0 0;
   color: #929b96;
-  font-size: 9px;
+  font-size: 10px;
 }
-
 
 /* =========================================================
    DATOS
@@ -462,24 +356,27 @@
 .datos-perfil {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid #edf1ee;
-  border-left: 1px solid #edf1ee;
-  border-radius: 12px;
+
+  border-top: 1px solid #e1e9e4;
+  border-left: 1px solid #e1e9e4;
+
+  border-radius: 13px;
   overflow: hidden;
 }
 
 .dato-perfil {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 13px;
 
   min-width: 0;
-  padding: 14px;
+  min-height: 76px;
+  padding: 16px;
 
-  background: #fcfdfc;
+  background: rgba(252, 253, 252, 0.65);
 
-  border-right: 1px solid #edf1ee;
-  border-bottom: 1px solid #edf1ee;
+  border-right: 1px solid #e1e9e4;
+  border-bottom: 1px solid #e1e9e4;
 
   transition:
     background 0.2s ease,
@@ -487,27 +384,28 @@
 }
 
 .dato-perfil:hover {
-  background: #f7faf8;
+  background: rgba(247, 250, 248, 0.9);
 }
 
 .dato-icono {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
+
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 8px;
+  border-radius: 9px;
 
   background: #f0f4f1;
   color: #638078;
 }
 
 .dato-icono svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 .dato-contenido {
@@ -516,10 +414,11 @@
 
 .dato-contenido span {
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 
   color: #949c97;
-  font-size: 8px;
+
+  font-size: 9px;
   font-weight: 600;
 }
 
@@ -531,10 +430,10 @@
   white-space: nowrap;
 
   color: #3f514a;
-  font-size: 10px;
+
+  font-size: 11px;
   font-weight: 600;
 }
-
 
 /* =========================================================
    COLUMNA LATERAL
@@ -546,13 +445,13 @@
   gap: 18px;
 }
 
-
 /* =========================================================
    ACTIVIDAD
    ========================================================= */
 
 .tarjeta-actividad {
-  padding: 21px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .tarjeta-seccion-header {
@@ -561,7 +460,7 @@
   justify-content: space-between;
 
   gap: 15px;
-  margin-bottom: 19px;
+  margin-bottom: 20px;
 }
 
 .tarjeta-seccion-header span {
@@ -569,7 +468,8 @@
   margin-bottom: 5px;
 
   color: #b5793a;
-  font-size: 8px;
+
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.14em;
 }
@@ -585,29 +485,28 @@
     Arial,
     sans-serif;
 
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
 }
 
 .actividad-icono {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 9px;
+  border-radius: 10px;
 
   background: #edf3ef;
   color: #245047;
 }
 
 .actividad-icono svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
-
 
 /* =========================================================
    ESTADÍSTICAS
@@ -621,28 +520,29 @@
 .estadistica-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 
-  padding: 13px 0;
+  padding: 15px 0;
 
   border-bottom: 1px solid #edf1ee;
 }
 
 .estadistica-item:last-child {
   border-bottom: none;
-  padding-bottom: 1px;
+  padding-bottom: 2px;
 }
 
 .estadistica-icono {
-  width: 35px;
-  height: 35px;
+  width: 42px;
+  height: 42px;
+
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 11px;
 
   background:
     linear-gradient(
@@ -655,8 +555,8 @@
 }
 
 .estadistica-icono svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .estadistica-texto {
@@ -674,53 +574,52 @@
     Arial,
     sans-serif;
 
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1;
 }
 
 .estadistica-texto span {
   display: block;
-  margin-top: 4px;
+  margin-top: 5px;
 
   color: #56665f;
-  font-size: 9px;
+
+  font-size: 10px;
   font-weight: 600;
 }
 
 .estadistica-texto small {
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
 
   color: #a0a8a3;
-  font-size: 8px;
+  font-size: 9px;
 }
-
 
 /* =========================================================
    SEGURIDAD
    ========================================================= */
 
 .tarjeta-seguridad {
-  position: relative;
-
   display: flex;
   align-items: flex-start;
-  gap: 11px;
+  gap: 12px;
 
-  padding: 17px;
+  padding: 19px;
 
   background:
     linear-gradient(
       135deg,
-      rgba(237, 243, 239, 0.98),
-      rgba(249, 247, 240, 0.98)
+      rgba(237, 243, 239, 0.8),
+      rgba(249, 247, 240, 0.8)
     );
 }
 
 .seguridad-icono {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
+
   flex-shrink: 0;
 
   display: flex;
@@ -732,20 +631,22 @@
   background: #ffffff;
   color: #5d806f;
 
-  box-shadow: 0 3px 9px rgba(23, 60, 52, 0.05);
+  box-shadow:
+    0 3px 9px rgba(23, 60, 52, 0.05);
 }
 
 .seguridad-icono svg {
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
 }
 
 .seguridad-label {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 
   color: #5d806f;
-  font-size: 7px;
+
+  font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.13em;
 }
@@ -761,37 +662,38 @@
     Arial,
     sans-serif;
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .tarjeta-seguridad p {
-  margin: 4px 0 0;
+  margin: 5px 0 0;
 
   color: #7d8983;
-  font-size: 8px;
+
+  font-size: 9px;
   line-height: 1.55;
 }
-
 
 /* =========================================================
    CERRAR SESIÓN
    ========================================================= */
 
 .boton-cerrar-sesion {
-  width: 100%;
+  width: auto;
+  min-width: 190px;
+  align-self: flex-start;
 
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
 
-  padding: 13px 14px;
+  padding: 10px 12px;
 
   border: 1px solid #eadbd5;
-  border-radius: 13px;
+  border-radius: 11px;
 
-  background: rgba(255, 255, 255, 0.75);
-
+  background: rgba(255, 255, 255, 0.58);
   color: #9b5f50;
 
   text-align: left;
@@ -815,22 +717,23 @@
 }
 
 .cerrar-icono {
-  width: 31px;
-  height: 31px;
+  width: 29px;
+  height: 29px;
+
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 9px;
+  border-radius: 8px;
 
   background: #f8eeeb;
 }
 
 .cerrar-icono svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
 }
 
 .boton-cerrar-sesion > span:nth-child(2) {
@@ -841,20 +744,20 @@
 
 .boton-cerrar-sesion strong {
   color: #825247;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
 }
 
 .boton-cerrar-sesion small {
   margin-top: 2px;
-
   color: #a28d87;
-  font-size: 8px;
+  font-size: 7px;
 }
 
 .cerrar-flecha {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
+
   margin-left: auto;
 
   color: #b69b94;
@@ -866,18 +769,18 @@
   transform: translateX(2px);
 }
 
-
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media (max-width: 1050px) {
-  .perfil-pagina {
-    padding: 30px;
+  .perfil-identidad,
+  .perfil-contenido {
+    width: calc(100% - 50px);
   }
 
   .perfil-contenido {
-    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-columns: minmax(0, 1fr) 300px;
   }
 
   .datos-perfil {
@@ -885,17 +788,21 @@
   }
 }
 
-
 /* =========================================================
    TABLET PEQUEÑA
    ========================================================= */
 
 @media (max-width: 850px) {
-  .perfil-pagina {
-    padding: 26px 22px 45px;
+  .perfil-banner {
+    height: 160px;
+  }
+
+  .perfil-identidad {
+    width: calc(100% - 40px);
   }
 
   .perfil-contenido {
+    width: calc(100% - 40px);
     grid-template-columns: 1fr;
   }
 
@@ -910,67 +817,52 @@
   }
 
   .boton-cerrar-sesion {
-    height: fit-content;
+    width: 100%;
   }
 }
-
 
 /* =========================================================
    MÓVIL
    ========================================================= */
 
 @media (max-width: 600px) {
-  .perfil-pagina {
-    padding: 22px 15px 35px;
-  }
-
-  .perfil-encabezado {
-    align-items: flex-start;
-  }
-
-  .perfil-encabezado-decoracion {
-    display: none;
-  }
-
-  .perfil-encabezado h1 {
-    font-size: 27px;
-  }
-
-  .perfil-encabezado p {
-    font-size: 12px;
-  }
-
   .perfil-banner {
-    height: 92px;
+    height: 125px;
+  }
+
+  .banner-lineas {
+    right: 25px;
+    bottom: 22px;
   }
 
   .perfil-identidad {
+    width: calc(100% - 30px);
+
     align-items: flex-start;
-    gap: 13px;
-    padding: 0 17px;
-    margin-top: -30px;
+    gap: 14px;
+
+    margin-top: -15px;
+    padding-bottom: 22px;
   }
 
   .avatar-perfil {
-    width: 66px;
-    height: 66px;
-    border-radius: 19px;
+    width: 72px;
+    height: 72px;
+
+    border-width: 5px;
+    border-radius: 20px;
   }
 
   .avatar-perfil span {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .identidad-info {
-    padding-top: 34px;
-  }
-
-  .identidad-nombre {
-    gap: 6px;
+    padding-top: 36px;
   }
 
   .identidad-nombre h2 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .identidad-info > p {
@@ -980,15 +872,24 @@
   .identidad-meta {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 5px;
   }
 
-  .perfil-separador {
-    margin: 21px 17px 0;
+  .identidad-meta span {
+    font-size: 8px;
+  }
+
+  .perfil-contenido {
+    width: calc(100% - 30px);
+    padding-bottom: 35px;
   }
 
   .informacion-perfil {
-    padding: 20px 17px 22px;
+    padding: 23px 18px 25px;
+  }
+
+  .perfil-separador {
+    margin: 0 18px;
   }
 
   .datos-perfil {
@@ -1001,14 +902,17 @@
   }
 
   .tarjeta-actividad {
-    padding: 18px;
+    padding: 20px;
   }
 
   .tarjeta-seguridad {
-    padding: 15px;
+    padding: 16px;
+  }
+
+  .boton-cerrar-sesion {
+    width: 100%;
   }
 }
-
 
 /* =========================================================
    MÓVIL PEQUEÑO

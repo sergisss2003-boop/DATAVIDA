@@ -11,6 +11,7 @@ import Comparar from "./pages/Comparar";
 import AnalisisEstadistico from "./pages/AnalisisEstadistico";
 import Recomendaciones from "./pages/Recomendaciones";
 import Reportes from "./pages/Reportes";
+import Perfil from "./pages/Perfil";
 
 import "./App.css";
 
@@ -25,7 +26,6 @@ function App() {
 
       {/* Aplicación */}
       <Route path="/app" element={<AppLayout />}>
-
         {/* Inicio */}
         <Route index element={<Inicio />} />
 
@@ -65,6 +65,11 @@ function App() {
           element={<Reportes />}
         />
 
+        {/* Perfil */}
+        <Route
+          path="perfil"
+          element={<Perfil />}
+        />
       </Route>
     </Routes>
   );
