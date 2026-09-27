@@ -10,13 +10,13 @@ import Mapa from "./pages/Mapa";
 import Comparar from "./pages/Comparar";
 import AnalisisEstadistico from "./pages/AnalisisEstadistico";
 import Recomendaciones from "./pages/Recomendaciones";
+import Reportes from "./pages/Reportes";
 
 import "./App.css";
 
 function App() {
   return (
     <Routes>
-
       {/* Página principal */}
       <Route path="/" element={<Landing />} />
 
@@ -35,7 +35,7 @@ function App() {
           element={<ConsultarIndicadores />}
         />
 
-        {/* Visualización */}
+        {/* Visualización - Mapa */}
         <Route
           path="mapa"
           element={<Mapa />}
@@ -59,8 +59,13 @@ function App() {
           element={<Recomendaciones />}
         />
 
-      </Route>
+        {/* Reportes */}
+        <Route
+          path="reportes"
+          element={<Reportes />}
+        />
 
+      </Route>
     </Routes>
   );
 }

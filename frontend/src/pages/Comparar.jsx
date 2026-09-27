@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "../styles/Comparar.css";
 
 const territorios = [
@@ -29,47 +29,36 @@ const datosComparacion = {
   "Bogotá D.C.": {
     ipm: [4.2, 5.1, 6.0, 7.2, 8.5],
   },
-
   Medellín: {
     ipm: [8.7, 10.2, 11.5, 12.8, 14.6],
   },
-
   Cali: {
     ipm: [12.1, 13.2, 14.4, 15.3, 16.1],
   },
-
   Barranquilla: {
     ipm: [17.4, 18.5, 19.2, 20.1, 21.4],
   },
-
   Cartagena: {
     ipm: [30.4, 31.2, 32.1, 33.5, 35.0],
   },
-
   Bucaramanga: {
     ipm: [8.9, 9.8, 10.6, 11.7, 12.8],
   },
-
   Chocó: {
     ipm: [62.4, 63.1, 64.8, 66.2, 68.0],
   },
-
   "La Guajira": {
     ipm: [65.2, 66.8, 67.4, 68.1, 69.3],
   },
-
   Nariño: {
     ipm: [30.2, 31.4, 32.7, 34.1, 35.5],
   },
-
   Antioquia: {
     ipm: [18.3, 19.1, 20.0, 21.2, 22.4],
   },
-
   Bolívar: {
     ipm: [38.5, 39.4, 40.2, 41.6, 43.0],
   },
-
   Cundinamarca: {
     ipm: [14.1, 15.0, 15.8, 16.7, 17.6],
   },
@@ -88,38 +77,47 @@ function obtenerValor(territorio, indicePeriodo) {
 function Comparar() {
   const [territorioA, setTerritorioA] = useState("Bogotá D.C.");
   const [territorioB, setTerritorioB] = useState("Chocó");
+
   const [indicador, setIndicador] = useState(
     "Índice de Pobreza Multidimensional"
   );
+
   const [periodo, setPeriodo] = useState("2022");
   const [comparado, setComparado] = useState(false);
 
   const indicePeriodo = periodos.indexOf(periodo);
 
+  const indiceSeguro =
+    indicePeriodo === -1 ? 0 : indicePeriodo;
+
   const valorA = obtenerValor(
     territorioA,
-    indicePeriodo === -1 ? 0 : indicePeriodo
+    indiceSeguro
   );
 
   const valorB = obtenerValor(
     territorioB,
-    indicePeriodo === -1 ? 0 : indicePeriodo
+    indiceSeguro
   );
 
   const diferencia = Math.abs(valorA - valorB).toFixed(1);
 
-  const maxBarra = Math.max(valorA, valorB, 30);
+  /*
+   * Escala fija para evitar que las barras
+   * cambien visualmente de proporción.
+   */
+  const escalaMaxima = 70;
 
   /*
-   * Para el gráfico histórico mostramos los años
-   * de 2018 a 2022 de izquierda a derecha.
+   * Histórico de 2018 → 2022.
    */
   const periodosHistoricos = [...periodos].reverse();
 
   const puntosGrafico = (territorio) => {
     return periodosHistoricos
       .map((_, indice) => {
-        const indiceOriginal = periodos.length - 1 - indice;
+        const indiceOriginal =
+          periodos.length - 1 - indice;
 
         const valor = obtenerValor(
           territorio,
@@ -128,28 +126,57 @@ function Comparar() {
 
         const x = 55 + indice * 82;
 
-        const y = 125 - (valor / 80) * 90;
+        const y =
+          125 -
+          (Math.min(valor, escalaMaxima) /
+            escalaMaxima) *
+            90;
 
         return `${x},${y}`;
       })
       .join(" ");
   };
 
+  const puntosArea = (territorio) => {
+    return `55,125 ${puntosGrafico(territorio)} 383,125`;
+  };
+
   const intercambiarTerritorios = () => {
     const temporal = territorioA;
+
     setTerritorioA(territorioB);
     setTerritorioB(temporal);
   };
 
+  const nombreIndicador = useMemo(() => {
+    if (
+      indicador ===
+      "Índice de Pobreza Multidimensional"
+    ) {
+      return "IPM";
+    }
+
+    if (
+      indicador ===
+      "Necesidades Básicas Insatisfechas"
+    ) {
+      return "NBI";
+    }
+
+    if (
+      indicador === "Tasa de analfabetismo"
+    ) {
+      return "Analfabetismo";
+    }
+
+    return "Cobertura";
+  }, [indicador]);
+
   return (
     <main className="comparar-pagina">
-
-      {/* =====================================================
-          ENCABEZADO
-      ===================================================== */}
+      {/* ENCABEZADO */}
 
       <section className="comparar-encabezado">
-
         <div className="comparar-etiqueta">
           COMPARACIÓN TERRITORIAL
         </div>
@@ -157,49 +184,43 @@ function Comparar() {
         <h1>Comparar territorios</h1>
 
         <p>
-          Compara el comportamiento de los indicadores entre
-          diferentes territorios.
+          Compara el comportamiento de los indicadores
+          entre diferentes territorios.
         </p>
-
       </section>
 
-      {/* =====================================================
-          CONFIGURACIÓN
-      ===================================================== */}
+      {/* CONFIGURACIÓN */}
 
       <section className="comparar-configuracion">
-
         <div className="configuracion-encabezado">
-
           <div>
             <span className="configuracion-numero">
               01
             </span>
 
             <div>
-              <h2>Configuración de comparación</h2>
+              <h2>
+                Configuración de comparación
+              </h2>
 
               <p>
-                Selecciona los territorios, indicador y periodo.
+                Selecciona los territorios, indicador y
+                periodo.
               </p>
             </div>
           </div>
-
         </div>
 
         <div className="comparar-formulario">
-
           {/* TERRITORIO A */}
 
           <div className="campo-comparar">
-
             <label htmlFor="territorio-a">
-              <span className="indicador-color color-a"></span>
+              <span className="indicador-color color-a" />
               Territorio A
             </label>
 
             <div className="select-con-icono">
-
               <select
                 id="territorio-a"
                 value={territorioA}
@@ -227,9 +248,7 @@ function Comparar() {
               >
                 <path d="m6 9 6 6 6-6" />
               </svg>
-
             </div>
-
           </div>
 
           {/* INTERCAMBIAR */}
@@ -258,14 +277,12 @@ function Comparar() {
           {/* TERRITORIO B */}
 
           <div className="campo-comparar">
-
             <label htmlFor="territorio-b">
-              <span className="indicador-color color-b"></span>
+              <span className="indicador-color color-b" />
               Territorio B
             </label>
 
             <div className="select-con-icono">
-
               <select
                 id="territorio-b"
                 value={territorioB}
@@ -293,21 +310,17 @@ function Comparar() {
               >
                 <path d="m6 9 6 6 6-6" />
               </svg>
-
             </div>
-
           </div>
 
           {/* INDICADOR */}
 
           <div className="campo-comparar">
-
             <label htmlFor="indicador">
               Indicador
             </label>
 
             <div className="select-con-icono">
-
               <select
                 id="indicador"
                 value={indicador}
@@ -335,21 +348,17 @@ function Comparar() {
               >
                 <path d="m6 9 6 6 6-6" />
               </svg>
-
             </div>
-
           </div>
 
           {/* PERIODO */}
 
           <div className="campo-comparar">
-
             <label htmlFor="periodo">
               Periodo
             </label>
 
             <div className="select-con-icono">
-
               <select
                 id="periodo"
                 value={periodo}
@@ -377,17 +386,13 @@ function Comparar() {
               >
                 <path d="m6 9 6 6 6-6" />
               </svg>
-
             </div>
-
           </div>
-
         </div>
 
-        {/* BOTONES */}
+        {/* ACCIONES */}
 
         <div className="comparar-acciones">
-
           <button
             type="button"
             className="boton-comparar"
@@ -426,20 +431,14 @@ function Comparar() {
 
             Agregar territorio
           </button>
-
         </div>
-
       </section>
 
-      {/* =====================================================
-          ESTADO INICIAL
-      ===================================================== */}
+      {/* ESTADO VACÍO */}
 
       {!comparado && (
         <section className="comparar-vacio">
-
           <div className="vacio-icono">
-
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -452,59 +451,50 @@ function Comparar() {
               <line x1="12" y1="20" x2="12" y2="5" />
               <line x1="18" y1="20" x2="18" y2="9" />
             </svg>
-
           </div>
 
-          <h3>Selecciona los territorios</h3>
+          <h3>
+            Selecciona los territorios
+          </h3>
 
           <p>
-            Configura los territorios, indicador y periodo y
-            pulsa <strong>Comparar</strong> para visualizar
+            Configura los territorios, indicador y
+            periodo y pulsa{" "}
+            <strong>Comparar</strong> para visualizar
             los resultados.
           </p>
-
         </section>
       )}
 
-      {/* =====================================================
-          RESULTADOS
-      ===================================================== */}
+      {/* RESULTADOS */}
 
       {comparado && (
         <section className="resultados-comparacion">
-
-          {/* =================================================
-              COLUMNA PRINCIPAL
-          ================================================= */}
-
           <div className="resultados-principal">
-
             {/* COMPARACIÓN VISUAL */}
 
             <article className="tarjeta-comparacion">
-
               <div className="tarjeta-titulo">
-
                 <div>
                   <span>RESULTADO ACTUAL</span>
-                  <h2>Comparación visual</h2>
+
+                  <h2>
+                    Comparación visual
+                  </h2>
                 </div>
 
                 <div className="periodo-badge">
                   {periodo}
                 </div>
-
               </div>
 
               <div className="barras-comparacion">
-
-                {/* TERRITORIO A */}
+                {/* A */}
 
                 <div className="barra-item">
-
                   <div className="barra-info">
                     <span>
-                      <i className="punto-a"></i>
+                      <i className="punto-a" />
                       {territorioA}
                     </span>
 
@@ -514,28 +504,26 @@ function Comparar() {
                   </div>
 
                   <div className="barra-fondo">
-
                     <div
                       className="barra-progreso barra-progreso-a"
                       style={{
                         width: `${Math.min(
-                          (valorA / maxBarra) * 100,
+                          (valorA /
+                            escalaMaxima) *
+                            100,
                           100
                         )}%`,
                       }}
-                    ></div>
-
+                    />
                   </div>
-
                 </div>
 
-                {/* TERRITORIO B */}
+                {/* B */}
 
                 <div className="barra-item">
-
                   <div className="barra-info">
                     <span>
-                      <i className="punto-b"></i>
+                      <i className="punto-b" />
                       {territorioB}
                     </span>
 
@@ -545,96 +533,84 @@ function Comparar() {
                   </div>
 
                   <div className="barra-fondo">
-
                     <div
                       className="barra-progreso barra-progreso-b"
                       style={{
                         width: `${Math.min(
-                          (valorB / maxBarra) * 100,
+                          (valorB /
+                            escalaMaxima) *
+                            100,
                           100
                         )}%`,
                       }}
-                    ></div>
-
+                    />
                   </div>
-
                 </div>
-
               </div>
-
             </article>
 
-            {/* EVOLUCIÓN HISTÓRICA */}
+            {/* GRÁFICO */}
 
             <article className="tarjeta-grafico">
-
               <div className="tarjeta-titulo">
-
                 <div>
                   <span>COMPORTAMIENTO</span>
-                  <h2>Evolución histórica</h2>
+
+                  <h2>
+                    Evolución histórica
+                  </h2>
                 </div>
 
                 <div className="leyenda-grafico">
-
                   <span>
-                    <i className="leyenda-a"></i>
+                    <i className="leyenda-a" />
                     {territorioA}
                   </span>
 
                   <span>
-                    <i className="leyenda-b"></i>
+                    <i className="leyenda-b" />
                     {territorioB}
                   </span>
-
                 </div>
-
               </div>
 
               <div className="grafico-contenedor">
-
                 <svg
-                  viewBox="0 0 480 165"
+                  viewBox="0 0 410 165"
                   className="grafico-svg"
-                  preserveAspectRatio="none"
                 >
-
-                  {/* Líneas horizontales */}
+                  {/* Guías */}
 
                   {[0, 1, 2, 3].map((i) => (
                     <line
                       key={i}
                       x1="40"
                       y1={25 + i * 30}
-                      x2="455"
+                      x2="385"
                       y2={25 + i * 30}
-                      stroke="#e9efeb"
+                      stroke="#e8eeea"
                       strokeWidth="1"
                     />
                   ))}
 
-                  {/* Área A */}
+                  {/* Áreas */}
 
                   <polygon
-                    points={`40,130 ${puntosGrafico(
-                      territorioA
-                    )} 450,130`}
+                    points={puntosArea(territorioA)}
                     fill="url(#degradadoA)"
                   />
 
-                  {/* Área B */}
-
                   <polygon
-                    points={`40,130 ${puntosGrafico(
-                      territorioB
-                    )} 450,130`}
+                    points={puntosArea(territorioB)}
                     fill="url(#degradadoB)"
                   />
 
                   {/* Línea A */}
 
                   <polyline
-                    points={puntosGrafico(territorioA)}
+                    points={puntosGrafico(
+                      territorioA
+                    )}
                     fill="none"
                     stroke="#245047"
                     strokeWidth="3"
@@ -645,7 +621,9 @@ function Comparar() {
                   {/* Línea B */}
 
                   <polyline
-                    points={puntosGrafico(territorioB)}
+                    points={puntosGrafico(
+                      territorioB
+                    )}
                     fill="none"
                     stroke="#b5793a"
                     strokeWidth="3"
@@ -655,79 +633,108 @@ function Comparar() {
 
                   {/* Puntos A */}
 
-                  {periodosHistoricos.map((_, indice) => {
+                  {periodosHistoricos.map(
+                    (_, indice) => {
+                      const indiceOriginal =
+                        periodos.length -
+                        1 -
+                        indice;
 
-                    const indiceOriginal =
-                      periodos.length - 1 - indice;
+                      const valor =
+                        obtenerValor(
+                          territorioA,
+                          indiceOriginal
+                        );
 
-                    const valor = obtenerValor(
-                      territorioA,
-                      indiceOriginal
-                    );
+                      const x =
+                        55 + indice * 82;
 
-                    const x = 55 + indice * 82;
-                    const y = 125 - (valor / 80) * 90;
+                      const y =
+                        125 -
+                        (Math.min(
+                          valor,
+                          escalaMaxima
+                        ) /
+                          escalaMaxima) *
+                          90;
 
-                    return (
-                      <circle
-                        key={`a-${indice}`}
-                        cx={x}
-                        cy={y}
-                        r="4"
-                        fill="#ffffff"
-                        stroke="#245047"
-                        strokeWidth="2.5"
-                      />
-                    );
-                  })}
+                      return (
+                        <circle
+                          key={`a-${indice}`}
+                          cx={x}
+                          cy={y}
+                          r="4"
+                          fill="#ffffff"
+                          stroke="#245047"
+                          strokeWidth="2.5"
+                        />
+                      );
+                    }
+                  )}
 
                   {/* Puntos B */}
 
-                  {periodosHistoricos.map((_, indice) => {
+                  {periodosHistoricos.map(
+                    (_, indice) => {
+                      const indiceOriginal =
+                        periodos.length -
+                        1 -
+                        indice;
 
-                    const indiceOriginal =
-                      periodos.length - 1 - indice;
+                      const valor =
+                        obtenerValor(
+                          territorioB,
+                          indiceOriginal
+                        );
 
-                    const valor = obtenerValor(
-                      territorioB,
-                      indiceOriginal
-                    );
+                      const x =
+                        55 + indice * 82;
 
-                    const x = 55 + indice * 82;
-                    const y = 125 - (valor / 80) * 90;
+                      const y =
+                        125 -
+                        (Math.min(
+                          valor,
+                          escalaMaxima
+                        ) /
+                          escalaMaxima) *
+                          90;
 
-                    return (
-                      <circle
-                        key={`b-${indice}`}
-                        cx={x}
-                        cy={y}
-                        r="4"
-                        fill="#ffffff"
-                        stroke="#b5793a"
-                        strokeWidth="2.5"
-                      />
-                    );
-                  })}
+                      return (
+                        <circle
+                          key={`b-${indice}`}
+                          cx={x}
+                          cy={y}
+                          r="4"
+                          fill="#ffffff"
+                          stroke="#b5793a"
+                          strokeWidth="2.5"
+                        />
+                      );
+                    }
+                  )}
 
                   {/* Años */}
 
-                  {periodosHistoricos.map((anio, indice) => (
-                    <text
-                      key={anio}
-                      x={55 + indice * 82}
-                      y="153"
-                      textAnchor="middle"
-                      fontSize="9"
-                      fill="#89918c"
-                    >
-                      {anio}
-                    </text>
-                  ))}
+                  {periodosHistoricos.map(
+                    (anio, indice) => (
+                      <text
+                        key={anio}
+                        x={
+                          55 + indice * 82
+                        }
+                        y="153"
+                        textAnchor="middle"
+                        fontSize="9"
+                        fill="#89918c"
+                      >
+                        {anio}
+                      </text>
+                    )
+                  )}
 
-                  {/* Degradados */}
+                  {/* Gradientes */}
 
                   <defs>
-
                     <linearGradient
                       id="degradadoA"
                       x1="0"
@@ -738,7 +745,7 @@ function Comparar() {
                       <stop
                         offset="0%"
                         stopColor="#245047"
-                        stopOpacity="0.20"
+                        stopOpacity="0.12"
                       />
 
                       <stop
@@ -758,7 +765,7 @@ function Comparar() {
                       <stop
                         offset="0%"
                         stopColor="#b5793a"
-                        stopOpacity="0.16"
+                        stopOpacity="0.10"
                       />
 
                       <stop
@@ -767,32 +774,26 @@ function Comparar() {
                         stopOpacity="0"
                       />
                     </linearGradient>
-
                   </defs>
-
                 </svg>
-
               </div>
-
             </article>
 
             {/* TABLA */}
 
             <article className="tarjeta-tabla">
-
               <div className="tabla-encabezado">
-
                 <div>
                   <span>DATOS</span>
-                  <h2>Tabla comparativa</h2>
-                </div>
 
+                  <h2>
+                    Tabla comparativa
+                  </h2>
+                </div>
               </div>
 
               <div className="tabla-scroll">
-
                 <table>
-
                   <thead>
                     <tr>
                       <th>Territorio</th>
@@ -804,15 +805,16 @@ function Comparar() {
                   </thead>
 
                   <tbody>
-
                     <tr>
                       <td>
-                        <strong>{territorioA}</strong>
+                        <strong>
+                          {territorioA}
+                        </strong>
                       </td>
 
                       <td>
                         <span className="badge-ipm">
-                          IPM
+                          {nombreIndicador}
                         </span>
                       </td>
 
@@ -827,12 +829,14 @@ function Comparar() {
 
                     <tr>
                       <td>
-                        <strong>{territorioB}</strong>
+                        <strong>
+                          {territorioB}
+                        </strong>
                       </td>
 
                       <td>
                         <span className="badge-ipm">
-                          IPM
+                          {nombreIndicador}
                         </span>
                       </td>
 
@@ -846,33 +850,24 @@ function Comparar() {
                         {diferencia} pp
                       </td>
                     </tr>
-
                   </tbody>
-
                 </table>
-
               </div>
-
             </article>
-
           </div>
 
-          {/* =================================================
-              RESUMEN
-          ================================================= */}
+          {/* RESUMEN */}
 
           <aside className="resumen-diferencias">
-
             <div className="resumen-encabezado">
-
               <span>ANÁLISIS</span>
 
-              <h2>Principales diferencias</h2>
-
+              <h2>
+                Principales diferencias
+              </h2>
             </div>
 
             <div className="brecha-card">
-
               <p>Brecha actual</p>
 
               <strong>
@@ -883,41 +878,33 @@ function Comparar() {
               <span>
                 puntos porcentuales de diferencia
               </span>
-
             </div>
 
             <div className="resumen-valores">
-
               <div className="resumen-valor">
-
                 <span>
-                  <i className="punto-a"></i>
+                  <i className="punto-a" />
                   {territorioA}
                 </span>
 
                 <strong>
                   {valorA.toFixed(1)}%
                 </strong>
-
               </div>
 
               <div className="resumen-valor">
-
                 <span>
-                  <i className="punto-b"></i>
+                  <i className="punto-b" />
                   {territorioB}
                 </span>
 
                 <strong>
                   {valorB.toFixed(1)}%
                 </strong>
-
               </div>
-
             </div>
 
             <div className="resumen-nota">
-
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -938,19 +925,23 @@ function Comparar() {
 
               <p>
                 La diferencia observada entre{" "}
-                <strong>{territorioA}</strong> y{" "}
-                <strong>{territorioB}</strong> es de{" "}
-                <strong>{diferencia} puntos porcentuales</strong>{" "}
+                <strong>
+                  {territorioA}
+                </strong>{" "}
+                y{" "}
+                <strong>
+                  {territorioB}
+                </strong>{" "}
+                es de{" "}
+                <strong>
+                  {diferencia} puntos porcentuales
+                </strong>{" "}
                 para el periodo {periodo}.
               </p>
-
             </div>
-
           </aside>
-
         </section>
       )}
-
     </main>
   );
 }

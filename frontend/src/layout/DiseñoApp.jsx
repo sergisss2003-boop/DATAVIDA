@@ -1,6 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
-import Sidebar from "./Sidebar";
+import BarraLateral from "./BarraLateral";
 
 export default function DiseñoApp() {
   const navigate = useNavigate();
@@ -24,16 +24,16 @@ export default function DiseñoApp() {
         navigate("/app/comparar");
         break;
 
-      case "recomendaciones":
-        navigate("/app/recomendaciones");
-        break;
-
       case "estadisticas":
         navigate("/app/estadisticas");
         break;
 
       case "predicciones":
         navigate("/app/predicciones");
+        break;
+
+      case "recomendaciones":
+        navigate("/app/recomendaciones");
         break;
 
       case "reportes":
@@ -73,16 +73,16 @@ export default function DiseñoApp() {
       return "comparar";
     }
 
-    if (ruta.startsWith("/app/recomendaciones")) {
-      return "recomendaciones";
-    }
-
     if (ruta.startsWith("/app/estadisticas")) {
       return "estadisticas";
     }
 
     if (ruta.startsWith("/app/predicciones")) {
       return "predicciones";
+    }
+
+    if (ruta.startsWith("/app/recomendaciones")) {
+      return "recomendaciones";
     }
 
     if (ruta.startsWith("/app/reportes")) {
@@ -93,21 +93,23 @@ export default function DiseñoApp() {
       return "perfil";
     }
 
+    if (ruta.startsWith("/app/ayuda")) {
+      return "ayuda";
+    }
+
     return "inicio";
   };
 
   return (
     <div className="app-shell">
-
-      <Sidebar
+      <BarraLateral
         pantallaActual={obtenerPantallaActual()}
         navegar={navegar}
       />
 
-      <div className="app-contenido">
+      <main className="app-contenido">
         <Outlet />
-      </div>
-
+      </main>
     </div>
   );
 }

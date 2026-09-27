@@ -1,28 +1,32 @@
 /* =========================================
    BARRA LATERAL - DATAVIDA
-   IDENTIDAD VISUAL
    ========================================= */
 
 .barra-lateral {
   width: 250px;
   min-width: 250px;
+  height: 100vh;
   min-height: 100vh;
 
   display: flex;
   flex-direction: column;
 
-  background:
-    linear-gradient(
-      180deg,
-      #0b2925 0%,
-      #0f2e2a 55%,
-      #0c2723 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #0b2925 0%,
+    #0f2e2a 55%,
+    #0c2723 100%
+  );
 
-  color: var(--blanco);
-  box-sizing: border-box;
+  color: #ffffff;
 
   border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-sizing: border-box;
+
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 /* =========================================
@@ -31,6 +35,7 @@
 
 .barra-lateral-logo {
   height: 88px;
+  min-height: 88px;
 
   display: flex;
   align-items: center;
@@ -45,34 +50,44 @@
 .logo-datavida-interno {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
 
   padding: 0;
+  margin: 0;
 
   border: none;
+  outline: none;
   background: transparent;
 
   cursor: pointer;
 
-  color: var(--blanco);
+  color: #ffffff;
 }
 
+/* TU LOGO */
 .logo-datavida-interno img {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
+
+  min-width: 38px;
+  min-height: 38px;
 
   object-fit: contain;
   display: block;
 }
 
 .logo-datavida-interno span {
-  font-family: var(--fuente-titulo);
+  font-family: "Outfit", sans-serif;
 
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
 
-  letter-spacing: -0.5px;
+  letter-spacing: -0.4px;
 
+  color: #ffffff;
+}
+
+.logo-datavida-interno span span {
   color: #e0a24f;
 }
 
@@ -83,9 +98,12 @@
 .navegacion-lateral {
   flex: 1;
 
+  min-height: 0;
+
   padding: 27px 13px;
 
   overflow-y: auto;
+  overflow-x: hidden;
 
   box-sizing: border-box;
 }
@@ -93,14 +111,14 @@
 .titulo-navegacion {
   margin: 0 12px 13px;
 
-  font-family: var(--fuente-texto);
+  font-family: "DM Sans", sans-serif;
 
   font-size: 9px;
   font-weight: 700;
 
   letter-spacing: 1.6px;
 
-  color: rgba(255, 255, 255, 0.40);
+  color: rgba(255, 255, 255, 0.4);
 
   text-transform: uppercase;
 }
@@ -108,7 +126,6 @@
 .lista-navegacion {
   display: flex;
   flex-direction: column;
-
   gap: 5px;
 }
 
@@ -136,8 +153,7 @@
 
   color: rgba(255, 255, 255, 0.66);
 
-  font-family: var(--fuente-texto);
-
+  font-family: "DM Sans", sans-serif;
   font-size: 12px;
   font-weight: 500;
 
@@ -155,7 +171,7 @@
 .elemento-navegacion:hover {
   background: rgba(63, 167, 150, 0.09);
 
-  border-color: rgba(63, 167, 150, 0.10);
+  border-color: rgba(63, 167, 150, 0.1);
 
   color: #ffffff;
 
@@ -163,16 +179,15 @@
 }
 
 /* =========================================
-   ELEMENTO ACTIVO
+   ACTIVO
    ========================================= */
 
 .elemento-navegacion.activo {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(214, 140, 62, 0.98),
-      rgba(224, 162, 79, 0.90)
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(214, 140, 62, 0.98),
+    rgba(224, 162, 79, 0.9)
+  );
 
   border-color: rgba(255, 214, 153, 0.16);
 
@@ -187,12 +202,11 @@
 .elemento-navegacion.activo:hover {
   transform: translateX(0);
 
-  background:
-    linear-gradient(
-      90deg,
-      #d68c3e,
-      #e0a24f
-    );
+  background: linear-gradient(
+    90deg,
+    #d68c3e,
+    #e0a24f
+  );
 }
 
 /* =========================================
@@ -202,6 +216,8 @@
 .icono-navegacion {
   width: 20px;
   height: 20px;
+
+  min-width: 20px;
 
   flex-shrink: 0;
 
@@ -229,14 +245,21 @@
 
 /* =========================================
    PARTE INFERIOR
+   AQUÍ QUEDAN SOLO:
+   PERFIL
+   CERRAR SESIÓN
    ========================================= */
 
 .barra-lateral-inferior {
-  padding: 14px 13px 16px;
+  flex-shrink: 0;
+
+  padding: 14px 13px 18px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 
   box-sizing: border-box;
+
+  background: rgba(5, 20, 18, 0.12);
 }
 
 .barra-lateral-inferior .elemento-navegacion {
@@ -259,7 +282,7 @@
 .elemento-navegacion.cerrar-sesion:hover {
   color: #ffffff;
 
-  background: rgba(201, 92, 92, 0.10);
+  background: rgba(201, 92, 92, 0.1);
 
   border-color: rgba(201, 92, 92, 0.08);
 
@@ -285,7 +308,7 @@
 }
 
 .navegacion-lateral::-webkit-scrollbar-thumb:hover {
-  background: rgba(63, 167, 150, 0.40);
+  background: rgba(63, 167, 150, 0.4);
 }
 
 /* =========================================
@@ -302,8 +325,15 @@
     padding: 0 20px;
   }
 
+  .logo-datavida-interno img {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
   .logo-datavida-interno span {
-    font-size: 21px;
+    font-size: 20px;
   }
 }
 
@@ -319,9 +349,9 @@
 
   .barra-lateral-logo {
     height: 80px;
+    min-height: 80px;
 
     justify-content: center;
-
     padding: 0;
   }
 
@@ -330,8 +360,11 @@
   }
 
   .logo-datavida-interno img {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+    min-height: 40px;
   }
 
   .titulo-navegacion {
@@ -371,11 +404,15 @@
 
   .barra-lateral-logo {
     height: 70px;
+    min-height: 70px;
   }
 
   .logo-datavida-interno img {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
+
+    min-width: 36px;
+    min-height: 36px;
   }
 
   .navegacion-lateral {

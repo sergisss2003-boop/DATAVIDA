@@ -1,7 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
-import "../styles/Sidebar.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import "../styles/BarraLateral.css";
 import logoDatavida from "../assets/logo-icono.png";
 
 const elementosNavegacion = [
@@ -10,34 +9,19 @@ const elementosNavegacion = [
     etiqueta: "Inicio",
     ruta: "/app",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M3 10.5 12 3l9 7.5" />
         <path d="M5 9.5V21h14V9.5" />
         <path d="M9 21v-7h6v7" />
       </svg>
     ),
   },
-
   {
     id: "indicadores",
     etiqueta: "Indicadores",
     ruta: "/app/indicadores",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <rect x="3" y="3" width="7" height="7" rx="1" />
         <rect x="14" y="3" width="7" height="7" rx="1" />
         <rect x="14" y="14" width="7" height="7" rx="1" />
@@ -45,20 +29,12 @@ const elementosNavegacion = [
       </svg>
     ),
   },
-
   {
     id: "visualizacion",
     etiqueta: "Visualización",
     ruta: "/app/mapa",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <circle cx="12" cy="12" r="9" />
         <path d="M3 12h18" />
         <path d="M12 3c2.2 2.5 3.4 5.5 3.4 9s-1.2 6.5-3.4 9" />
@@ -66,20 +42,12 @@ const elementosNavegacion = [
       </svg>
     ),
   },
-
   {
     id: "comparar",
     etiqueta: "Comparar",
     ruta: "/app/comparar",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M8 4v16" />
         <path d="M16 4v16" />
         <path d="M4 8h8" />
@@ -87,40 +55,24 @@ const elementosNavegacion = [
       </svg>
     ),
   },
-
   {
     id: "estadisticas",
     etiqueta: "Análisis estadístico",
-    ruta: "/app/analisis-estadistico",
+    ruta: "/app/estadisticas",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M3 20V4" />
         <path d="M3 20h18" />
         <path d="m6 15 4-4 3 2 6-7" />
       </svg>
     ),
   },
-
   {
     id: "predicciones",
     etiqueta: "Predicciones IA",
     ruta: "/app/predicciones",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M12 3v3" />
         <path d="M12 18v3" />
         <path d="m4.22 4.22 2.12 2.12" />
@@ -133,40 +85,24 @@ const elementosNavegacion = [
       </svg>
     ),
   },
-
   {
     id: "recomendaciones",
     etiqueta: "Recomendaciones",
     ruta: "/app/recomendaciones",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M9 18h6" />
         <path d="M10 22h4" />
         <path d="M8.5 14.5C7.55 13.7 7 12.5 7 11a5 5 0 0 1 10 0c0 1.5-.55 2.7-1.5 3.5-.75.65-1.5 1.3-1.5 2.5h-4c0-1.2-.75-1.85-1.5-2.5Z" />
       </svg>
     ),
   },
-
   {
     id: "reportes",
     etiqueta: "Reportes",
     ruta: "/app/reportes",
     icono: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
         <path d="M14 2v6h6" />
         <path d="M8 13h8" />
@@ -178,12 +114,9 @@ const elementosNavegacion = [
 
 function BarraLateral() {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const rutaActual = window.location.pathname;
-
-  const navegar = (ruta) => {
-    navigate(ruta);
-  };
+  const rutaActual = location.pathname;
 
   return (
     <aside className="barra-lateral">
@@ -191,30 +124,38 @@ function BarraLateral() {
       {/* LOGO */}
       <div className="barra-lateral-logo">
         <button
-          className="logo-datavida-interno"
-          onClick={() => navegar("/app")}
           type="button"
+          className="logo-datavida-interno"
+          onClick={() => navigate("/app")}
         >
           <img src={logoDatavida} alt="DataVida" />
-          <span>DataVida</span>
+
+          <span>
+            DATA<span>VIDA</span>
+          </span>
         </button>
       </div>
 
       {/* MENÚ PRINCIPAL */}
       <nav className="navegacion-lateral">
+
         <p className="titulo-navegacion">
           MENÚ PRINCIPAL
         </p>
 
         <div className="lista-navegacion">
           {elementosNavegacion.map((elemento) => {
-            const activo = rutaActual === elemento.ruta;
+
+            const activo =
+              rutaActual === elemento.ruta ||
+              (elemento.ruta !== "/app" &&
+                rutaActual.startsWith(elemento.ruta));
 
             return (
               <button
                 key={elemento.id}
                 type="button"
-                onClick={() => navegar(elemento.ruta)}
+                onClick={() => navigate(elemento.ruta)}
                 className={`elemento-navegacion ${
                   activo ? "activo" : ""
                 }`}
@@ -232,16 +173,17 @@ function BarraLateral() {
         </div>
       </nav>
 
-      {/* PARTE INFERIOR */}
+      {/* PARTE INFERIOR
+          SOLO PERFIL Y CERRAR SESIÓN */}
       <div className="barra-lateral-inferior">
 
         {/* PERFIL */}
         <button
           type="button"
+          onClick={() => navigate("/app/perfil")}
           className={`elemento-navegacion ${
-            rutaActual === "/app/perfil" ? "activo" : ""
+            rutaActual.startsWith("/app/perfil") ? "activo" : ""
           }`}
-          onClick={() => navegar("/app/perfil")}
         >
           <span className="icono-navegacion">
             <svg
@@ -249,8 +191,6 @@ function BarraLateral() {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
             >
               <circle cx="12" cy="8" r="4" />
               <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
@@ -262,39 +202,11 @@ function BarraLateral() {
           </span>
         </button>
 
-        {/* AYUDA */}
-        <button
-          type="button"
-          className={`elemento-navegacion ${
-            rutaActual === "/app/ayuda" ? "activo" : ""
-          }`}
-          onClick={() => navegar("/app/ayuda")}
-        >
-          <span className="icono-navegacion">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="12" cy="12" r="9" />
-              <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-.8.9-1.9 1.3-1.9 2.9" />
-              <path d="M12 17h.01" />
-            </svg>
-          </span>
-
-          <span className="texto-navegacion">
-            Ayuda
-          </span>
-        </button>
-
         {/* CERRAR SESIÓN */}
         <button
           type="button"
           className="elemento-navegacion cerrar-sesion"
-          onClick={() => navegar("/login")}
+          onClick={() => navigate("/login")}
         >
           <span className="icono-navegacion">
             <svg
@@ -302,8 +214,6 @@ function BarraLateral() {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
             >
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
               <path d="m16 17 5-5-5-5" />
